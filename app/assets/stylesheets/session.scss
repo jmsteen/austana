@@ -1,0 +1,125 @@
+.session-header {
+    display: block;
+    position: absolute;
+    top: 1px;
+}
+
+.session {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top right,
+     rgba(191, 87, 0, 0.9) 15%,
+     rgba(248, 151, 31, 0.9) 60%,
+     rgba(255, 214, 0, 0.9) 90%
+    );
+    height: 100vh;
+    justify-content: center;
+}
+
+.session-container {
+    width: 585px;
+    background: white;
+    margin: 0 auto;
+    border-radius: 5px;
+    line-height: 1.5px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.session-form-title {
+    font-size: 32px;
+    padding: 50px 30px 30px;
+    font-weight: 400;
+    text-transform: none;
+    color: #151b4e;
+    text-align: center;
+}
+
+.session-form {
+   padding: 0 90px 45px 90px;
+}
+
+.session-form > label {
+    text-align: left;
+    line-height: 18px;
+    color: #333f48;
+    font-size: 12px;
+    font-weight: 500px;
+    margin-top: 30px;
+    display: block;
+}
+
+.session-form > label > input {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px;
+    height: 40px;
+    margin: 7px 0 0 0;
+    padding: 0 0 0 10px;
+    width: 100%;
+}
+
+.session-button {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.session-button > button {
+    color: white;
+    background: #1aacf5;
+    border-color: #1aacf5;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: inherit;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 350;
+    cursor: pointer;
+}
+
+.session-button > button:hover {
+    background: #127cb0;
+    border-radius: #127cb0;
+
+}
+
+.session-footer {
+    display: flex;
+    margin-top: 20px;
+    font-size: 14px;
+    color: white;
+    align-items: center;
+}
+
+.session-footer p {
+    margin: 0 7px;
+}
+
+.session-footer button {
+    margin: 0 7px;
+    background: none;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.session-footer button:hover {
+    margin: 0 7px;
+    background: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 4px;
+    color: rgba($color: #28221ddb, $alpha: 1.0);
+}
+
+
+
+.logo {
+    height: 60px;
+    margin: 0 auto;
+}

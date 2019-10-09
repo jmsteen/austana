@@ -20,15 +20,18 @@ class SessionForm extends React.Component {
     };
 
     handleSubmit(e) {
+        e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(()=>(
+            this.props.history.push('/home')
+        ));
     }
 
     renderErrors() {
         return this.props.errors.map((error, i) => (
-            <li key={i}>
+            <p key={i}>
                 {error}
-            </li>
+            </p>
         ));
     }
 
@@ -43,7 +46,9 @@ class SessionForm extends React.Component {
                     <h1 className="session-form-title">{this.props.formType}</h1>
                     
                     <form className="session-form" onSubmit={this.handleSubmit}>
-                        {this.renderErrors()}
+                        <div className="session-errors">
+                            {this.renderErrors()}
+                        </div>
                         <label>Email Address
                             <br/>
                             <input type="text"

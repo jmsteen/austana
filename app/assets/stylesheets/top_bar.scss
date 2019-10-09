@@ -1,0 +1,48 @@
+.top-bar {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid lightgrey;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.dropdown span {
+    background: blue;
+    color: white;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.dropdown button {
+    cursor: pointer;
+    background: white;
+    color:darkgray;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 24px;
+    box-shadow: 0 8x 16px 0 darkslategray;
+    padding: 10px;
+    z-index: 1;
+    border: 1px solid gray;
+};
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    cursor: pointer;
+    background: white;
+    z-index: 1;
+    padding: 10px
+};

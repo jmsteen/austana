@@ -9,7 +9,7 @@ const mapStateToProps = ({ errors }, ownProps) => {
         errors: errors.session,
         formType: 'Sign Up',
         message: 'Already have an account?',
-        altSession: 'Sign In',
+        altSession: 'Log In',
         button: 'login'
     };
 };

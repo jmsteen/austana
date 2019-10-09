@@ -85,6 +85,17 @@
 
 }
 
+.session-errors {
+    width: 100%;
+}
+.session-errors > p {
+    margin: 15px 0;
+    background: #fbdebb;
+    line-height: 3;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
 .session-footer {
     display: flex;
     margin-top: 20px;

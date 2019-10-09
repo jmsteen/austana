@@ -28,11 +28,19 @@ class SessionForm extends React.Component {
         ));
     }
 
+
     renderErrors() {
         return this.props.errors.map((error, i) => (
             <p key={i}>
                 {error}
             </p>
+        ));
+    }
+
+    demoLogin() {
+        const demoUser = { email: 'demo@demo.com' , password: 'demopassword' };
+        this.props.processForm(demoUser).then(() => (
+            this.props.history.push('/home')
         ));
     }
 
@@ -76,6 +84,11 @@ class SessionForm extends React.Component {
                     <Link to={`/${this.props.button}`}>
                         <button>{this.props.altSession}</button>
                     </Link>
+                    <button 
+                        onClick={this.demoLogin} 
+                        className="demo"
+                    >Demo Login
+                    </button>
                 </footer>
             </div>
         )

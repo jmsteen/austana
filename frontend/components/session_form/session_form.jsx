@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
 
     demoLogin() {
         const demoUser = { email: 'demo@demo.com' , password: 'demopassword' };
-        this.props.processForm(demoUser).then(() => (
+        this.props.demoLogin(demoUser).then(() => (
             this.props.history.push('/home')
         ));
     }
@@ -85,7 +85,7 @@ class SessionForm extends React.Component {
                         <button>{this.props.altSession}</button>
                     </Link>
                     <button 
-                        onClick={this.demoLogin} 
+                        onClick={this.demoLogin.bind(this)} 
                         className="demo"
                     >Demo Login
                     </button>

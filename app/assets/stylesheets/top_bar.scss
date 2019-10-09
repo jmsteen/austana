@@ -26,6 +26,7 @@
     cursor: pointer;
     background: white;
     color:darkgray;
+    padding: 5px;
 }
 
 .dropdown-content {
@@ -34,7 +35,7 @@
     right: 5px;
     top: 24px;
     box-shadow: 0 8x 16px 0 darkslategray;
-    padding: 10px;
+    padding: 3px;
     z-index: 1;
     border: 1px solid gray;
 };

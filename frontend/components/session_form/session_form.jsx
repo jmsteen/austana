@@ -24,23 +24,29 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then(()=>(
-            this.props.history.push('/home')
+            this.props.history.push('/austana_grid')
         ));
+    }
+
+    componentDidMount() {
+        this.props.clearErrors();
     }
 
 
     renderErrors() {
-        return this.props.errors.map((error, i) => (
+        const errors =  this.props.errors.map((error, i) => (
             <p key={i}>
                 {error}
             </p>
         ));
+        return errors;
     }
+
 
     demoLogin() {
         const demoUser = { email: 'demo@demo.com' , password: 'demopassword' };
         this.props.demoLogin(demoUser).then(() => (
-            this.props.history.push('/home')
+            this.props.history.push('/austana_grid')
         ));
     }
 

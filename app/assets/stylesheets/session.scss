@@ -129,8 +129,17 @@
 }
 
 
+@media screen and (min-height: 585px) {
+    .logo {
+        height: 60px;
+        margin: 0 auto;
+    }
+}
 
-.logo {
-    height: 60px;
-    margin: 0 auto;
+@media screen and (max-height: 585px) {
+    .logo {
+        height: 60px;
+        margin: 0 auto;
+        display: none;
+    }
 }

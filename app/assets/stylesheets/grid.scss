@@ -1,0 +1,25 @@
+.container {
+    display: grid;
+    grid-template-columns: 244px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+        "side-bar top-bar"
+        "side-bar austana-main";
+    height: 100vh;
+     width: 100vw;
+}
+
+.top-bar {
+    grid-area: top-bar;
+    background: orange;
+}
+
+.side-bar {
+    grid-area: side-bar;
+    background: #151b26;
+}
+
+.austana-main {
+    grid-area: austana-main;
+    background: whitesmoke;
+}

@@ -1,6 +1,6 @@
 import { logout } from '../../actions/session_actions';
 import { connect } from 'react-redux';
-import Home from './home';
+import AustanaGrid from './austana_grid';
 
 const mapStateToProps = ({ entities: { users }, session }) => {
     return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps)(Home);
+    mapDispatchToProps)(AustanaGrid);

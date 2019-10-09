@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  current_status: MyText
+  due_on: 2019-10-09 12:48:27
+  start_on: 2019-10-09 12:48:27
+  archived: false
+  color: MyString
+  notes: MyText
+  owner_id: 1
+  team_id: 1
+
+two:
+  name: MyString
+  current_status: MyText
+  due_on: 2019-10-09 12:48:27
+  start_on: 2019-10-09 12:48:27
+  archived: false
+  color: MyString
+  notes: MyText
+  owner_id: 1
+  team_id: 1

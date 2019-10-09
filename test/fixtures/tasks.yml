@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  completed: false
+  completed_at: 2019-10-09 12:51:08
+  due_on: 2019-10-09
+  due_at: 2019-10-09 12:51:08
+  name: MyString
+  notes: MyText
+  start_on: 2019-10-09
+  assignee_id: 1
+  parent_task_id: 1
+  project_id: 1
+  task_list_id: 1
+
+two:
+  completed: false
+  completed_at: 2019-10-09 12:51:08
+  due_on: 2019-10-09
+  due_at: 2019-10-09 12:51:08
+  name: MyString
+  notes: MyText
+  start_on: 2019-10-09
+  assignee_id: 1
+  parent_task_id: 1
+  project_id: 1
+  task_list_id: 1

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       resources :projects, only: [:index]
     end
     resource :session, only: [:create, :destroy]
-    resources :projects, only: [:show, :index, :update, :destroy, :edit]
-    
+    resources :projects, only: [:show, :create, :index, :update, :destroy]
+    resources :task_lists, only: 
+      [:index, :show, :create, :update, :destroy] do
+        resources :tasks, only: [:index, :create]
+    end
+    resources :tasks, only: [:update, :destroy]
   end
 end

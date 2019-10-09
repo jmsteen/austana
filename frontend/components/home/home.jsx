@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({currentUser, logout}) => {
+const Home = ({currentUser, logout}) => {
     
     const welcome = () => {
         return <nav className="top-bar">
@@ -19,4 +19,4 @@ const Greeting = ({currentUser, logout}) => {
     return welcome();
 };
 
-export default Greeting;
+export default Home;

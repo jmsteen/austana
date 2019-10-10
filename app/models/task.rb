@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
-    validates :name, :completed, presence: true
+    validates :name, presence: true
+    validates :completed, inclusion: { in: [true, false]}
 
     belongs_to :assignee,
         class_name: :User,
@@ -7,7 +8,8 @@ class Task < ApplicationRecord
 
     belongs_to :parent_task,
         class_name: :Task,
-        foreign_key: :parent_task_id
+        foreign_key: :parent_task_id,
+        optional: true
 
     belongs_to :project
 

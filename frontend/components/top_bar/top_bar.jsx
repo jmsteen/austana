@@ -1,13 +1,10 @@
 import React from 'react';
+import NewDropDown from './new_dropdown';
 
 class TopBar extends React.Component {
     constructor(props) {
         super(props)
 
-    }
-
-    showDropdown () {
-        document.getElementById("dropdown-items").classList.toggle('show');
     }
 
     render () {
@@ -21,15 +18,7 @@ class TopBar extends React.Component {
             </section>
             
             <section className="top-bar-right">
-                <div className="new-dropdown">
-                    <button className="new-drop-btn" onClick={this.showDropdown}>
-                        + New
-                    </button>
-                    <div id="dropdown-items" className="new-dropdown-items">
-                        <a href="">Task</a>
-                        <a href="">Project</a>
-                    </div>
-                </div>
+                <NewDropDown  />
                 <div className="dropdown">
                     <span>{initials}</span>
                     <div className="dropdown-content">

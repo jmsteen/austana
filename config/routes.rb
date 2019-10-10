@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       [:index, :show, :create, :update, :destroy] do
         resources :tasks, only: [:index, :create]
     end
-    resources :tasks, only: [:update, :destroy]
+    resources :tasks, only: [:update, :destroy, :show]
+    resources :teams, only: [:create, :show, :update]
   end
 end

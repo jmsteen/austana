@@ -67,10 +67,12 @@
 
 .new-drop-btn:hover, .new-drop-btn:focus {
     background: linear-gradient(to top right, #a93535 0%, #c2704a 35%, #ae7702 100%); 
+    outline: 0;
 }
 
 .new-dropdown-items {
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     background: #ffffff;
     min-width: 152px;

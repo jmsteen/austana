@@ -14,24 +14,28 @@ users = [
         email: 'john@gmail.com',
         session_token: 'JQXfzVCnu4-rCKNcvPh7-A',
         password_digest: '$2a$12$6LBHB.ZQeH/7JOK0AC5ZIedcq3ju7lt9SpEbS1Z0Ch5g/FRjD5Z6K',
+        team_id: 2
     },
     {
         name: 'Kai',
         email: 'kai@kai.com',
         session_token: 'jeVQfQvTcocbAr-yXvD97Q',
         password_digest: '$2a$12$PO48gJ9Fri7LQNKiFANeO.aK.zYjyZM.XB//ZGtvop8JtmJQbbv/6',
+        team_id: 1
     },
     {
         name: 'Jack',
         email: 'jack@twitter.com',
         session_token: 'seuFNvN5L5LGmZMxWztFsQ',
         password_digest: '$2a$12$n17LiFM50bgATvjgf1mtzOBGHyS2EldH/cuhP48spbZlw4z6VnqRK',
+        team_id: 1
     },
     {
         name: 'Patrick',
         email: 'demo@demo.com',
         session_token: 'oJPwn9qgphYsDiBsIDUaKQ',
         password_digest: '$2a$12$NSVT1mYP1x80vAIygsmANeQx44C3Ap2OWQE6LZjqhZLNcIR3xPdR.',
+        team_id: 2
     },
 
 ]

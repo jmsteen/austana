@@ -6,6 +6,21 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, length: { minimum: 8, allow_nil: true }
 
+    belongs_to :team
+    
+    has_many :tasks,
+        class_name: :Task,
+        foreign_key: :assignee_id
+    
+    has_many :task_lists,
+        class_name: :TaskList,
+        foreign_key: :owner_id
+   
+    has_many :projects,
+        class_name: :Project,
+        foreign_key: :owner_id
+    
+
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(email, password)

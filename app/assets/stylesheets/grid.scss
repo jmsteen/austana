@@ -12,6 +12,8 @@
 .top-bar {
     grid-area: top-bar;
     background: orange;
+    display: flex;
+    align-items: center;
 }
 
 .side-bar {

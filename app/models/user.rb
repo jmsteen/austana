@@ -6,7 +6,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, length: { minimum: 8, allow_nil: true }
 
-    belongs_to :team
+    belongs_to :team, optional: true
     
     has_many :tasks,
         class_name: :Task,

@@ -13,19 +13,20 @@ class TopBar extends React.Component {
         userNames.forEach(partOfName => initials += partOfName[0]);
 
         return <nav className="item top-bar">
-            <section className="top-bar-left">
-                <h2>Home</h2>
-            </section>
-            
-            <section className="top-bar-right">
-                <NewDropDown  />
-                <div className="dropdown">
-                    <span>{initials}</span>
-                    <div className="dropdown-content">
-                        <button onClick={this.props.logout}>Logout</button>
-                    </div>
-                </div>
-            </section>
+           
+                    <section className="top-bar-left">
+                        <h2>Home</h2>
+                    </section>
+                    
+                    <section className="top-bar-right">
+                        <NewDropDown  />
+                        <div className="dropdown">
+                            <span>{initials}</span>
+                            <div className="dropdown-content">
+                                <button onClick={this.props.logout}>Logout</button>
+                            </div>
+                        </div>
+                    </section>
         </nav>
 
     }

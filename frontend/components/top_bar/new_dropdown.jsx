@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskFormContainer from '../tasks/task_form_container';
 
 class NewDropDown extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class NewDropDown extends React.Component {
     toggleDropdown() {
         this.setState({open: !this.state.open})
     }
+
     
     render () {
         
@@ -24,14 +26,23 @@ class NewDropDown extends React.Component {
             onClick={this.toggleDropdown.bind(this)}
             >
                 + New
-                        </button>
-            {this.state.open && (<div 
-                id="dropdown-items" 
-                className="new-dropdown-items"
-                
-            >
-                <a href="">Task</a>
-                <a href="">Project</a>
+            </button>
+            {this.state.open && (<div className="root-positioner">
+                <div className="positioner-outer">
+                    <div className="positioner-inner">
+                        <div 
+                            id="dropdown-items" 
+                            className="new-dropdown-items"
+                        >   
+                            <span>Task</span>
+                            <span>Project</span> 
+                        </div>
+                        
+                        <div className="arrow-anchor">
+                            <div className="up-arrow"></div>
+                        </div>
+                    </div>
+                </div>
             </div>)
             }
         </div>

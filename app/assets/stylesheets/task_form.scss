@@ -1,0 +1,16 @@
+.new-task-form {
+    display: flex;
+    align-items: center;
+    color: #151b26;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 0 30px 0 15px;
+    height: 40px;
+    text-decoration: none;
+}
+
+.new-task-form:hover {
+    background: linear-gradient(45deg, #ff5263 0%, #ff7381 60%, #fcbd01 115%);
+    color: #fff;
+    text-decoration: none;
+}

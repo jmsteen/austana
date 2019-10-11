@@ -8,7 +8,7 @@ const AustanaGrid = ({currentUser, logout}) => {
         <section className="container">
             <TopBar currentUser={currentUser} logout={logout} />
             <div className="item side-bar">
-                <img src={window.logo} alt="logo"/>
+                <img className="side-logo" src={window.logo} alt="logo"/>
             </div>
 
             <main className="item austana-main">Main Section</main>

@@ -3,7 +3,9 @@ class Api::TasksController < ApplicationController
 
     def create
         @task = Task.new(task_params)
-        @task.task_list_id = params[:task_list_id]
+        @task.project_id ||= @task.assignee.projects.first
+        @task.task_list_id = params[:task_list_id] 
+            || Project.find(@task.project_id).task_lists.first
 
         if @task.save
             render 'api/tasks/show'

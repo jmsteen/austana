@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import TopBar from '../top_bar/top_bar'
 
 const AustanaGrid = ({currentUser, logout}) => {

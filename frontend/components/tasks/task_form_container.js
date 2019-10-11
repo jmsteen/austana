@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TaskForm from './task_form';
 import { createTask } from '../../actions/task_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({entities: {users}, session }) => {
     return {
@@ -10,7 +11,9 @@ const mapStateToProps = ({entities: {users}, session }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createTask: (taskListId, task) => dispatch(createTask(taskListId, task))
+        createTask: (taskListId, task) => dispatch(createTask(taskListId, task)),
+        openModal: modal => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal())
     };
 };
 

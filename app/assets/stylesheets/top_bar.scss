@@ -112,7 +112,7 @@
     left:  -58px;
 }
 
-.new-dropdown-items > span {
+.new-dropdown-items > span, .new-dropdown-items > button {
     display: flex;
     align-items: center;
     color: #151b26;
@@ -123,7 +123,7 @@
     text-decoration: none;
 }
 
-.new-dropdown-items > span:hover {
+.new-dropdown-items > span:hover, .new-dropdown-items > button:hover {
     background: linear-gradient(45deg, #ff5263 0%, #ff7381 60%, #fcbd01 115%);
     color: #fff;
     text-decoration: none;

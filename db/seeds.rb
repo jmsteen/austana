@@ -14,14 +14,14 @@ users = [
         email: 'john@gmail.com',
         session_token: 'JQXfzVCnu4-rCKNcvPh7-A',
         password_digest: '$2a$12$6LBHB.ZQeH/7JOK0AC5ZIedcq3ju7lt9SpEbS1Z0Ch5g/FRjD5Z6K',
-        team_id: 2
+        team_id: 1
     },
     {
         name: 'Kai',
         email: 'kai@kai.com',
         session_token: 'jeVQfQvTcocbAr-yXvD97Q',
         password_digest: '$2a$12$PO48gJ9Fri7LQNKiFANeO.aK.zYjyZM.XB//ZGtvop8JtmJQbbv/6',
-        team_id: 1
+        team_id: 2
     },
     {
         name: 'Jack',
@@ -49,15 +49,15 @@ projects = [
         name: 'Austana Beta Launch',
         current_status: 'in-progress',
         due_on: Faker::Date.forward(days: 60),
-        owner_id: 3,
-        team_id: 1
+        owner_id: 4,
+        team_id: 2
     },
     {
         name: 'Eastside Tech Meetup',
         current_status: 'Planning',
         due_on: Faker::Date.forward(days: 60),
         owner_id: 1,
-        team_id: 2
+        team_id: 1
     },
 ]
 
@@ -104,22 +104,22 @@ task_lists = [
     },
     {
         name: 'Discovery and Planning',
-        owner_id: 3,
+        owner_id: 4,
         project_id: 1,
     },
     {
         name: 'Development',
-        owner_id: 3,
+        owner_id: 4,
         project_id: 1,
     },
     {
         name: 'Testing',
-        owner_id: 3,
+        owner_id: 4,
         project_id: 1,
     },
     {
         name: 'Deployment',
-        owner_id: 3,
+        owner_id: 4,
         project_id: 1,
     },
 ]

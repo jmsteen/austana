@@ -20,7 +20,8 @@ class Api::TasksController < ApplicationController
     end
 
     def index
-        @tasks = TaskList.find(params[:task_list_id]).tasks
+        # @tasks = TaskList.find(params[:task_list_id]).tasks
+        @tasks = current_user.tasks
         render 'api/tasks/index'
     end
 

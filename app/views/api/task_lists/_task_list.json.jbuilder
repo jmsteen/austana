@@ -1,0 +1,1 @@
+json.extract! task_list, :id, :name, :owner_id, :project_id

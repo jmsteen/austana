@@ -1,0 +1,95 @@
+.checkmark {
+    height: 17px;
+    margin-right: 10px;
+}
+
+.checkmark:hover {
+   color: green;
+}
+
+.home {
+    margin: 0 120px;
+}
+
+.home-inner {
+    width: 850px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1230px){
+    .home-inner {
+        width: 680px;
+    }   
+
+} 
+.home-welcome {
+    display: flex;
+}
+
+.home-welcome > img {
+    margin-right: 30px;
+}
+
+.upcoming-tasks {
+    margin: 30px auto;
+}
+
+.upcoming-tasks > h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 40px 25px 20px 25px;
+}
+
+.home-task-list {
+    border: 2px solid #e8ecee;
+    margin: 0 25px;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px 0 rgba(21, 27, 38, 0.08);
+}
+
+
+.home-task-list > li {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    color: #2e2a2a;
+    font-size: 13px;
+    padding: 10px;
+    align-items: center;
+}
+
+.home-task-list > li:hover {
+    background: #f6f8f9;
+}
+
+.home-task-list > li > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-task-list > li > p:last-of-type {
+    font-size: 11px;
+    color: gray;
+}
+
+.home-task-list > li:first-of-type {
+    border-bottom: 1px solid #dedede
+}
+
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-content :first-child {
+    font-size: 20px;
+    margin: 25px 0px;
+    font-weight: 500;
+}
+
+.welcome-content :last-child {
+    line-height: 1.5;
+    color: #747a80;
+}

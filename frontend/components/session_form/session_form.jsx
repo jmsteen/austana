@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then(()=>(
-            this.props.history.push('/austana_grid')
+            this.props.history.push('/home')
         ));
     }
 
@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
     demoLogin() {
         const demoUser = { email: 'demo@demo.com' , password: 'demopassword' };
         this.props.demoLogin(demoUser).then(() => (
-            this.props.history.push('/austana_grid')
+            this.props.history.push('/home')
         ));
     }
 

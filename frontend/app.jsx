@@ -12,7 +12,7 @@ const App = () => {
         <Switch>
             <AuthRoute exact path='/signup' component={SignupFormContainer}/>
             <AuthRoute exact path='/login' component={LoginFormContainer}/>
-            <ProtectedRoute exact path='/austana_grid' component={AustanaGridContainer}/>
+            <ProtectedRoute exact path='/home' component={AustanaGridContainer}/>
             <AuthRoute component={LoginFormContainer}/>
         </Switch>
     </div>

@@ -9,7 +9,7 @@ class TopBar extends React.Component {
 
     render () {
         let userNames = this.props.currentUser.name.split(' ')
-        let initials = "" || 'G';
+        let initials = "";
         userNames.forEach(partOfName => initials += partOfName[0]);
 
         return <nav className="item top-bar">
@@ -21,7 +21,9 @@ class TopBar extends React.Component {
                     <section className="top-bar-right">
                         <NewDropDown  />
                         <div className="dropdown">
-                            <span>{initials}</span>
+                            <div className="user-logout">
+                                <span>{initials || "G"}</span>
+                            </div>
                             <div className="dropdown-content">
                                 <button onClick={this.props.logout}>Logout</button>
                             </div>

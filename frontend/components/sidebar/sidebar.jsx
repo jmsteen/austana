@@ -10,7 +10,7 @@ class SideBar extends React.Component {
 
     render () {
     
-        return <div className="item side-bar">
+        return <div className="item side-bar disable-text">
             <div className="side-header">
                 <img className="side-logo" src={window.logo} alt="logo" />
             </div>

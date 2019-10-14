@@ -9,7 +9,6 @@ const AustanaGrid = ({currentUser, logout}) => {
         <section className="container">
             <TopBar currentUser={currentUser} logout={logout} />
             <SideBarContainer />
-
             <MainContainer />
         </section>
     )

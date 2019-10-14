@@ -1,6 +1,11 @@
 import React from 'react';
 import NewDropDown from './new_dropdown';
-
+import { Switch } from 'react-router-dom';
+import { ProtectedRoute } from '../../util/route_util';
+import HomeNav from '../../components/navbars/home-nav';
+import TasksNav from '../../components/navbars/tasks-nav';
+import TeamNav from '../../components/navbars/team-nav';
+ 
 class TopBar extends React.Component {
     constructor(props) {
         super(props)
@@ -15,7 +20,11 @@ class TopBar extends React.Component {
         return <nav className="item top-bar">
            
                     <section className="top-bar-left">
-                        <h2>Home</h2>
+                        <Switch>
+                            <ProtectedRoute path='/tasks' component={TasksNav} />
+                            <ProtectedRoute path='/teams' component={TeamNav} />
+                            <ProtectedRoute component={HomeNav} />
+                        </Switch>
                     </section>
                     
                     <section className="top-bar-right">

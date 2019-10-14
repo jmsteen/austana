@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const msp = state => {
     return {}
@@ -29,9 +30,9 @@ class TeamDetailSidebar extends React.Component {
     render () {
         return <div>
                     <div className="side-team-open-detail" 
-                        onClick={this.toggle}
                     >
                         <svg 
+                            onClick={this.toggle}
                             className="team-icon-arrow" 
                             viewBox="0 0 24 24" 
                             id="side-open-team"
@@ -44,7 +45,11 @@ class TeamDetailSidebar extends React.Component {
                             c0.4-0.4,0.6-0.9,0.6-1.5
                             S17.9,11.1,17.5,10.7z"></path>
                         </svg>
-                        <h3 className="side-team-name">Operations</h3>
+                        <h3 
+                            className="side-team-name"
+                            onClick={()=>this.props.history.push('/teams/2')}
+                            >Operations
+                        </h3>
                     </div>
 
                     {this.state.open && (
@@ -83,4 +88,4 @@ class TeamDetailSidebar extends React.Component {
     }
 }
 
-export default connect(msp, mdp)(TeamDetailSidebar);
+export default withRouter(connect(msp, mdp)(TeamDetailSidebar));

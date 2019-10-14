@@ -1,7 +1,10 @@
 import React from 'react';
 
-export default () => {
+const TeamNav = (props) => {
+    
     return (
         <h2>Operations</h2>
     )
 }
+
+export default TeamNav;

@@ -3,15 +3,9 @@ import React from 'react';
 import Root from './root';
 import configureStore from './store/store';
 import * as TaskActions from './actions/task_actions'
+import { logout } from './actions/session_actions';
 
-// let sampleTask = {
-//     due_on: Date.now,
-//     name: 'Sample task',
-//     start_on: Date.now,
-//     assignee_id: 2,
-//     project_id: 2,
-//     task_list_id: 4
-// }
+window.logout = logout;
 
 window.TaskActions = TaskActions;
 

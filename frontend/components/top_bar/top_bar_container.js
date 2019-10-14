@@ -1,15 +1,18 @@
-import { connect } from 'react-router';
-import TopBar from './top_bar';
+// import { connect } from 'react-redux';
+// import TopBar from './top_bar';
+// import { logout } from '../../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => {
+// const mapStateToProps = ({entities: {users}, session}, ownProps) => {
 
-    return {
+//     return {
+//         currentUser: users[session.id]
+//     };
+// };
 
-    };
-};
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         logout: () => dispatch(logout())
+//     };
+// };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        
-    }
-}
+// export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

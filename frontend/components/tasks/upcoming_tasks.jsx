@@ -5,9 +5,9 @@ class UpcomingTasks extends React.Component {
         super(props)
     }
 
-    // NOTE: update taskListId to be dynamic
+    
     componentDidMount() {
-        this.props.fetchTasks(5)
+        this.props.fetchTasks()
     }
 
     render () {

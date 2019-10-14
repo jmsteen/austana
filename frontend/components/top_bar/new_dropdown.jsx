@@ -15,8 +15,16 @@ class NewDropDown extends React.Component {
         this.state = { open: false }
     }
 
-    componentDidMount () {
+    componentDidMount() {
         document.addEventListener('click', (e) => {
+            if (e.target.classList[0] !== 'new-drop-btn') {
+                this.setState({ open: false })
+            };
+        });
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', (e) => {
             if (e.target.classList[0] !== 'new-drop-btn') {
                 this.setState({ open: false })
             };

@@ -1,7 +1,7 @@
-export const fetchTasks = (taskListId) => {
+export const fetchTasks = () => {
     return $.ajax({
         method: 'GET',
-        url: `api/task_lists/${taskListId}/tasks`,
+        url: `api/tasks`,
         error: err => console.log(err)
     });
 };
@@ -14,10 +14,10 @@ export const fetchTask = (id) => {
     });
 }
 
-export const createTask = (taskListId, task) => {
+export const createTask = (task) => {
     return $.ajax({
         method: 'POST',
-        url: `api/task_lists/${taskListId}/tasks`,
+        url: `api/tasks`,
         data: { task },
         error: err => console.log(err)
     });

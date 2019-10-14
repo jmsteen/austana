@@ -8,10 +8,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :projects, only: [:show, :create, :index, :update, :destroy]
     resources :task_lists, only: 
-      [:index, :show, :create, :update, :destroy] do
-        resources :tasks, only: [:index, :create]
-    end
-    resources :tasks, only: [:update, :destroy, :show]
-    resources :teams, only: [:create, :show, :update]
+      [:index, :show, :create, :update, :destroy]
+    resources :tasks, only: [:create, :index, :update, :destroy, :show]
+    resources :teams, only: [:create, :show, :index, :update]
   end
 end

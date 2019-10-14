@@ -13,7 +13,7 @@ const mapStateToProps = ({entities: {tasks}}, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchTasks: (taskListId) => dispatch(fetchTasks(taskListId))
+        fetchTasks: () => dispatch(fetchTasks())
     };
 };
 

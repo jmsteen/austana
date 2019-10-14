@@ -23,7 +23,7 @@ class TopBar extends React.Component {
                         <Switch>
                             <ProtectedRoute path='/tasks' component={TasksNav} />
                             <ProtectedRoute path='/teams' component={TeamNav} />
-                            <ProtectedRoute component={HomeNav} />
+                            <ProtectedRoute exact path='/home' component={HomeNav} />
                         </Switch>
                     </section>
                     

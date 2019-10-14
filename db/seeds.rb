@@ -14,7 +14,6 @@ users = [
         email: 'john@gmail.com',
         session_token: 'JQXfzVCnu4-rCKNcvPh7-A',
         password_digest: '$2a$12$6LBHB.ZQeH/7JOK0AC5ZIedcq3ju7lt9SpEbS1Z0Ch5g/FRjD5Z6K',
-        team_id: 1
     },
     {
         name: 'Kai',
@@ -28,7 +27,6 @@ users = [
         email: 'jack@twitter.com',
         session_token: 'seuFNvN5L5LGmZMxWztFsQ',
         password_digest: '$2a$12$n17LiFM50bgATvjgf1mtzOBGHyS2EldH/cuhP48spbZlw4z6VnqRK',
-        team_id: 1
     },
     {
         name: 'Patrick',
@@ -57,7 +55,6 @@ projects = [
         current_status: 'Planning',
         due_on: Faker::Date.forward(days: 60),
         owner_id: 1,
-        team_id: 1
     },
 ]
 

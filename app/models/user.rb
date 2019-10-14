@@ -5,8 +5,6 @@ class User < ApplicationRecord
     validates :email, :password_digest, :session_token, presence: true
     validates :email, uniqueness: true
     validates :password, length: { minimum: 8, allow_nil: true }
-
-    belongs_to :team, optional: true
     
     has_many :tasks,
         class_name: :Task,
@@ -19,6 +17,10 @@ class User < ApplicationRecord
     has_many :projects,
         class_name: :Project,
         foreign_key: :owner_id
+
+    has_many :teams,
+        through: :projects,
+        source: :team
     
 
     after_initialize :ensure_session_token

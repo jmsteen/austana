@@ -50,7 +50,7 @@ class TaskDetail extends React.Component {
         let dueDate = new Date(this.state.due_on);
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
             'Sep', 'Oct', 'Nov', 'Dec'];
-        dueDate = `${months[dueDate.getMonth()]}` + ` ${dueDate.getDate()}`;
+        dueDate = `${months[dueDate.getMonth()]}` + ` ${dueDate.getDate()+1}`;
 
         return <div className="task-detail-container">
             <div className="task-detail">
@@ -90,7 +90,6 @@ class TaskDetail extends React.Component {
                             />
                         </div>
                         <div className="task-form-assignment">
-                            <button>
                                 <div className="user-logout task-initials">
                                     {this.props.currentUser.name
                                         .split(" ").map(name=>(
@@ -117,10 +116,12 @@ class TaskDetail extends React.Component {
                                     </svg>
                                     <div className="task-due-on-text">
                                         <p>Due On</p>
-                                        <p>{dueDate}</p>
+                                        <input type="date"
+                                        value={this.state.due_on}
+                                        onChange={this.update('due_on')}
+                                        placeholder={dueDate}/>
                                     </div>
                                 </div>
-                            </button>
                         </div>
                         <div className="task-form-notes">
                             <textarea 

@@ -125,15 +125,15 @@ task_lists.each do |task_list|
 end
 
 
-10.times do
-    Task.create(
-        due_on: Faker::Date.forward(days: 60),
-        name: Faker::Company.bs,
-        assignee_id: Faker::Number.between(from: 1, to: 3),
-        project_id: Faker::Number.between(from: 1, to: 2),
-        task_list_id: Faker::Number.between(from: 1, to: 8),
-    )
-end
+# 10.times do
+#     Task.create(
+#         due_on: Faker::Date.forward(days: 60),
+#         name: Faker::Company.bs,
+#         assignee_id: Faker::Number.between(from: 1, to: 3),
+#         project_id: Faker::Number.between(from: 1, to: 2),
+#         task_list_id: Faker::Number.between(from: 1, to: 8),
+#     )
+# end
 
 Task.create(
     due_on: Date.today + 3,

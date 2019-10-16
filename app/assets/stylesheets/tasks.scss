@@ -1,3 +1,18 @@
+.add-task-index {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 1px solid #e8ecee;
+}
+
+.add-task-button {
+    width: 40px;
+    font-size: 13px;
+    color: white;
+    background: blue($color: #000000);
+}
+
 .status-header {
     font-size: 13px;
     display: flex;
@@ -8,6 +23,8 @@
     padding: 0 15px 0 20px;
     border-top: 1px solid rgb(232, 236, 238);
     box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tasks {
@@ -35,4 +52,90 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.tasks-index {
+    background: white;
+    min-width: 405px;
+    max-width: 1000px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.task-section {
+    display: flex;
+    color: #151b26;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 30px;
+    align-items: center;
+    height: 30px;
+}
+
+.task-section h3 {
+    padding-left: 10px;
+}
+
+#task-collapse-recently-assigned {
+    fill: #151b26;
+    padding: 0;
+}
+
+#task-collapse-today {
+    fill: #151b26;
+    padding: 0;
+}
+
+#task-collapse-upcoming {
+    fill: #151b26;
+    padding: 0;
+}
+
+#task-collapse-later {
+    fill: #151b26;
+    padding: 0;
+}
+
+.task-collapse-rotate {
+    transform: rotate(90deg);
+}
+
+.index-task-list {
+   margin: 0px 15px;
+}
+
+
+.index-task-list > li {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    color: #2e2a2a;
+    font-size: 13px;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #dedede
+}
+
+.index-task-list > li:hover {
+    background: #f6f8f9;
+}
+
+.index-task-list > li > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.index-task-list > li > p:last-of-type {
+    font-size: 11px;
+    color: gray;
+}
+
+.index-task-list > li:last-of-type {
+    border-bottom: none
 }

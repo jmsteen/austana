@@ -2,6 +2,7 @@ import * as TaskApiUtil from '../util/task_api_util';
 
 export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
+export const RECEIVE_CURRENT_TASK = 'RECEIVE_CURRENT_TASK'
 export const REMOVE_TASK = 'REMOVE_TASK';
 
 const receiveAllTasks = tasks => {
@@ -15,6 +16,13 @@ const receiveTask = task => {
     return {
         type: RECEIVE_TASK,
         task
+    };
+};
+
+const receiveCurrentTask = taskId => {
+    return {
+        type: RECEIVE_CURRENT_TASK,
+        taskId
     };
 };
 
@@ -33,6 +41,10 @@ export const fetchTasks = () => dispatch => {
 export const fetchTask = (id) => dispatch => {
     return TaskApiUtil.fetchTask(id)
         .then(task => dispatch(receiveTask(task)));
+};
+
+export const fetchCurrentTask = taskId => dispatch => {
+    return dispatch(receiveCurrentTask(taskId));
 };
 
 export const createTask = (taskListId, task) => dispatch => {

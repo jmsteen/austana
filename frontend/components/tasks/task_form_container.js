@@ -11,7 +11,7 @@ const mapStateToProps = ({entities: {users}, session }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createTask: (taskListId, task) => dispatch(createTask(taskListId, task)),
+        createTask: (task) => dispatch(createTask(task)),
         openModal: modal => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal())
     };

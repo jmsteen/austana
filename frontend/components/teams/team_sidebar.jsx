@@ -8,6 +8,10 @@ class TeamSideBar extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchTeams();
+    }
+
     toggle() {
         this.setState({
             open: !this.state.open
@@ -17,6 +21,10 @@ class TeamSideBar extends React.Component {
     };
 
     render() {
+        const teams = this.props.teams.map(team => {
+            return <TeamDetailSidebar key={team.id} team={team}/>
+        });
+
         return <div className="side-teams">
             <div className="side-team-toggle" onClick={this.toggle}>
                 <h3>Teams</h3>
@@ -37,7 +45,7 @@ class TeamSideBar extends React.Component {
 
             {this.state.open && (
             <div>
-                <TeamDetailSidebar />
+                { teams }
                 <div className="side-add-team">
                     <svg 
                         className="team-icon-plus-gray" 

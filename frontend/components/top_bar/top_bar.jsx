@@ -13,16 +13,18 @@ class TopBar extends React.Component {
     }
 
     render () {
-        let userNames = this.props.currentUser.name.split(' ')
         let initials = "";
-        userNames.forEach(partOfName => initials += partOfName[0]);
+        if (this.props.currentUser.name) {
+            let userNames = this.props.currentUser.name.split(' ')
+            userNames.forEach(partOfName => initials += partOfName[0]);
+        }
 
         return <nav className="item top-bar">
            
                     <section className="top-bar-left">
                         <Switch>
                             <ProtectedRoute path='/tasks' component={TasksNav} />
-                            <ProtectedRoute path='/teams' component={TeamNav} />
+                            <ProtectedRoute exact path='/teams/:teamId' component={TeamNav} />
                             <ProtectedRoute exact path='/home' component={HomeNav} />
                         </Switch>
                     </section>

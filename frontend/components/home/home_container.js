@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import Home from './home';
 
-const msp = (state, ownProps) => {
-    return {}
+const msp = ({entities: { users }, session}, ownProps) => {
+    return {
+        currentUser: users[session.id]
+    };
 };
 
 const mdp = dispatch => {

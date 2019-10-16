@@ -48,6 +48,7 @@ export const logout = () => dispatch => {
         .then(() => dispatch(logoutCurrentUser()))
 };
 
-// export const resetErrors = () => dispatch => {
-//     return () => dispatch(clearErrors())
-// };
+export const updateUser = user => dispatch => {
+    return SessionApiUtil.updateUser(user)
+        .then(user => dispatch(receiveCurrentUser(user)))
+};

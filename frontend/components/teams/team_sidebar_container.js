@@ -1,8 +1,18 @@
 import { connect } from 'react-redux';
 import TeamSideBar from './team_sidebar';
+import { fetchTeams } from '../../actions/team_actions'
 
-const msp = state => {
-    return {}
+const mapStateToProps = ({entities: { teams }}) => {
+    const teamArr = Object.values(teams);
+    return {
+        teams: teamArr
+    };
 };
 
-export default connect(msp, null)(TeamSideBar);
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchTeams: () => dispatch(fetchTeams())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamSideBar);

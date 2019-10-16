@@ -128,6 +128,54 @@
     color: rgba($color: #28221ddb, $alpha: 1.0);
 }
 
+.setup-form-container {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    margin: 80px auto;
+}
+
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.setup-form label > input {
+    width: 100%;
+    border: 1px solid #d3d3d3bf;
+    border-radius: 5px;
+    height: 35px;
+    margin: 15px 0;
+    padding-left: 10px;
+}
+
+.setup-form-container h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.setup-form-container p {
+    color: #6f7782;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.setup-form-container button {
+    background: #14aaf5;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    margin: 25px 0;
+}
+
+.setup-form-container button:hover {
+    background: #008ce3;
+}
+
+
 
 @media screen and (min-height: 585px) {
     .logo {
@@ -142,4 +190,43 @@
         margin: 0 auto;
         display: none;
     }
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    height: 500px;
+    margin: auto;
+}
+
+.welcome button {
+    background: #14AAF5;
+    font-size: 13px;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.welcome button:hover {
+    background: rgb(14, 120, 172);
+}
+
+.welcome-image {
+    height: 150px;
+}
+
+.welcome p {
+    color: #6f7782;
+}
+
+.welcome h2 {
+    font-size: 23px;
+    font-weight: 500;
+    margin: 30px 0 20px 0;
 }

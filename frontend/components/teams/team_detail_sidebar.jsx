@@ -47,8 +47,10 @@ class TeamDetailSidebar extends React.Component {
                         </svg>
                         <h3 
                             className="side-team-name"
-                            onClick={()=>this.props.history.push('/teams/2')}
-                            >Operations
+                            onClick={()=>(
+                                this.props.history.push(`/teams/${this.props.team.id}`)
+                            )}
+                            >{this.props.team.name}
                         </h3>
                     </div>
 

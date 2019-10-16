@@ -1,12 +1,17 @@
 import React from 'react';
 
-const Welcome = () => {
+const Welcome = (props) => {
     return <div>
-        <img 
-            className="welcome-image" 
-            src={window.onboardWelcome}/>
-        <h2>Welcome to Austana</h2>
-        <button></button>
+        <div className="welcome disable-text">
+            <img 
+                className="welcome-image" 
+                src={window.onboardWelcome}/>
+            <h2>Welcome to Austana</h2>
+            <p>We're glad you're here. Just one more step and you're good to go!</p>
+            <button onClick={()=>props.history.push('/setup')}>
+                Get Started
+            </button>
+        </div>
     </div>
 }; 
 

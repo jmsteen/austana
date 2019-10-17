@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = ({entities: { teams, users }}, ownProps) => {
     const team = teams[ownProps.match.params.teamId];
-    const memberIds = team ? team.memberIds : [];
+    const memberIds = team ? team.memberIds : null;
 
     return {
         team,

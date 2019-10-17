@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchTeamMembers, fetchTeamMemberIds } from '../../actions/team_actions';
+import { openPopup } from '../../actions/popup_actions';
 
 const msp = ({entities: { teams, users }}, ownProps) => {
     
@@ -18,7 +19,8 @@ const msp = ({entities: { teams, users }}, ownProps) => {
 const mdp = (dispatch, ownProps) => {
    return {
        fetchTeamMembers: (id) => dispatch(fetchTeamMembers(id)),
-       fetchTeamMemberIds: id => dispatch(fetchTeamMemberIds(id))
+       fetchTeamMemberIds: id => dispatch(fetchTeamMemberIds(id)),
+       openPopup: type => dispatch(openPopup(type))
    };
 };
 
@@ -45,12 +47,15 @@ class TeamDetailSidebar extends React.Component {
     };
 
     render () {
-        
-        const sideMembers = ()=>this.props.team.memberIds.map((id, idx) => {
-            return <div key={idx} className={`side-team-member-${idx}`}>
+        let sideMembers
+
+        if(this.props.team.memberIds) {
+            sideMembers = this.props.team.memberIds.map((id, idx) => {
+                return <div key={idx} className={`side-team-member-${idx}`}>
                     {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
                 </div>
-        });
+            });
+        }
 
         return <div>
                     <div className="side-team-open-detail" 
@@ -81,7 +86,7 @@ class TeamDetailSidebar extends React.Component {
                     {this.state.open && (
                         <div className="side-team-container">
                             <div className="side-team-members">
-                                {this.props.team && sideMembers()}
+                                {this.props.team && sideMembers}
                                 <div className="side-all-members">
                                     <p>All Members</p>
                                 </div>
@@ -96,7 +101,7 @@ class TeamDetailSidebar extends React.Component {
                                         c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z">
                                     </path>
                                 </svg>
-                                <p>Create a Project</p>
+                        <p onClick={()=>this.props.openPopup('projectForm')}>Create a Project</p>
                             </div>
 
                         </div>

@@ -9,18 +9,20 @@ import TeamNav from '../../components/navbars/team-nav';
 class TopBar extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = { 
+            currentUser: ""
+        };
     }
 
     render () {
-        let initials = "";
-        if (this.props.currentUser.name) {
+        
+        const initials = () => {if (this.props.currentUser.name) {
             let userNames = this.props.currentUser.name.split(' ')
-            userNames.forEach(partOfName => initials += partOfName[0]);
+            return userNames.map(partOfName => partOfName[0])
+            };
         }
 
         return <nav className="item top-bar">
-           
                     <section className="top-bar-left">
                         <Switch>
                             <ProtectedRoute path='/tasks' component={TasksNav} />
@@ -33,7 +35,7 @@ class TopBar extends React.Component {
                         <NewDropDown  />
                         <div className="dropdown">
                             <div className="user-logout">
-                                <span>{initials || "G"}</span>
+                                <span>{this.props.currentUser && initials()}</span>
                             </div>
                             <div className="dropdown-content">
                                 <button onClick={this.props.logout}>Logout</button>

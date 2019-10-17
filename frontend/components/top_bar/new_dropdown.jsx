@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
+import { openPopup } from '../../actions/popup_actions';
 
 const mapDispatchToProps = dispatch => {
     return {
-        openModal: modal => dispatch(openModal(modal))
+        openModal: modal => dispatch(openModal(modal)),
+        openPopup: popup => dispatch(openPopup(popup))
     };
 };
 
@@ -53,7 +55,8 @@ class NewDropDown extends React.Component {
                         >   
                           
                             <button onClick={()=>this.props.openModal('taskForm')}>Task</button> 
-                            <span>Project</span> 
+                            <button onClick={()=>this.props.openPopup('projectForm')}>Project</button> 
+                           
                         </div>
                         
                         <div className="arrow-anchor">

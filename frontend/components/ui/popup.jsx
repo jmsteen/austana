@@ -2,6 +2,7 @@ import React from 'react';
 import { closePopup } from '../../actions/popup_actions';
 import { connect } from 'react-redux';
 import TeamFormContainer from '../teams/team_form_container';
+import ProjectFormContainer from '../projects/project_form_container';
 import TaskDetail from '../tasks/task_detail';
 
 class Popup extends React.Component {
@@ -14,12 +15,16 @@ class Popup extends React.Component {
             return null;
         }
         let component;
+        
         switch (this.props.popup) {
             case 'teamForm':
                 component = <TeamFormContainer />
                 break;
             case 'taskDetail':
                 component = <TaskDetail />
+                break;
+            case 'projectForm':
+                component = <ProjectFormContainer />
                 break;
             default:
                 return null;

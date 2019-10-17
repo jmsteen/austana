@@ -46,8 +46,9 @@ class TeamSideBar extends React.Component {
             {this.state.open && (
             <div>
                 { teams }
-                <div className="side-add-team">
-                    <svg 
+                    {/* <div className="side-add-team" > 
+                    <svg
+                        onClick={() => this.props.openPopup('teamForm')} 
                         className="team-icon-plus-gray" 
                         viewBox="0 0 24 24"
                     >
@@ -58,8 +59,8 @@ class TeamSideBar extends React.Component {
                             c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z">
                         </path>
                     </svg>
-                    <p>Add Team</p>
-                </div>
+                        <p onClick={() => this.props.openPopup('teamForm')}>Add Team</p>
+                    </div> */}
             </div>
             )}
         </div>

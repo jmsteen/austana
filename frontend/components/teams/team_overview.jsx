@@ -34,7 +34,7 @@ class TeamOverview extends React.Component {
 
     render() {
         
-
+        
         return <div className="team-overview">
             <div className="team-inner">
                 <div className="team-left">
@@ -53,7 +53,7 @@ class TeamOverview extends React.Component {
 
                     <div className="team-members">
                         <h3>Members</h3>
-                        <ul> {this.props.memberIds && (this.props.memberIds.map((id, idx) => {
+                        <ul> {this.props.memberIds && this.props.users && (this.props.memberIds.map((id, idx) => {
                                 return <li key={id} className="team-member">
                                     <div className={`member-icon-${idx}`}>
                                         {this.props.users[id].name.split(" ").map(name => name[0]).join("")}

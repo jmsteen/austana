@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import TeamSideBar from './team_sidebar';
 import { fetchTeams } from '../../actions/team_actions'
+import {openPopup } from '../../actions/popup_actions';
 
 const mapStateToProps = ({entities: { teams }}) => {
     const teamArr = Object.values(teams);
@@ -11,7 +12,8 @@ const mapStateToProps = ({entities: { teams }}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchTeams: () => dispatch(fetchTeams())
+        fetchTeams: () => dispatch(fetchTeams()),
+        openPopup: type => dispatch(openPopup(type))
     };
 };
 

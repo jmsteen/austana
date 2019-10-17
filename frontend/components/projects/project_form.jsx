@@ -1,30 +1,33 @@
 import React from 'react';
 
-class TeamForm extends React.Component {
+class ProjectForm extends React.Component {
     constructor(props) {
         super(props)
+  
         this.state = {
-            team: {
-                name: "",
-                description: "",
-            },
-            members: {
-                emails: ""
-            } 
+            name: "",
+            due_on: new Date('12/31/2019'),
+            team_id: "",
+            notes: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createTeam(this.state.team)
+        this.props.createProject(this.state)
     };
 
-    update(type, field) {
+    componentDidMount() {
+        this.setState({
+            team_id: this.props.team.id
+        })
+    }
+
+    update(field) {
             return (e) => {
-                let subState = { [field]: e.target.value }
                 this.setState({
-                    [type]: subState
+                    [field]: e.target.value
                 });
             };
     };
@@ -32,9 +35,9 @@ class TeamForm extends React.Component {
     render() {
 
         return <div className="task-detail-container">
-            <div className="task-detail">
+            <div className="new-project-form">
                 <nav className="task-detail-nav">
-                    <h2 className="new-team-title">Create new team</h2>
+                    <h2 className="new-team-title">Add project details</h2>
                     <svg className="task-close" viewBox="0 0 32 32" onClick={this.props.closePopup}>
                         <path 
                             d="M18.1,16L27,7.1
@@ -52,31 +55,43 @@ class TeamForm extends React.Component {
                         id="task-popup-form"
                         onSubmit={this.handleSubmit}
                     >
-                        <div className="team-form-name">
-                            <label>Team name
+                        <div className="new-project-form-name">
+                            <label>Project name
                                 <br/>
                                 <input
+                                    className="new-project-form-input"
+                                    required
                                     type="text"
-                                    placeholder="For example, 'Marketing' or 'Design'..."
-                                    value={this.state.team.name}
-                                    onChange={this.update('team', 'name')}
+                                    placeholder="For example, 'Austana App Launch' or 'Implement Kubernetes'..."
+                                    value={this.state.name}
+                                    onChange={this.update('name')}
                                 />
+                            </label>    
+                            <label>Team
+                                <br/>
+                                <select
+                                    className="new-project-select"
+                                    required
+                                    placeholder="For example, 'Austana App Launch' or 'Implement Kubernetes'..."
+                                    >
+                                    <option value={this.props.team && this.props.team.id}>{this.props.team && (this.props.team.name)}</option> 
+                                </select>
                             </label>
                         </div>
                         <div className="team-form-name">
-                            <label>Members
+                            <label>Description
                                 <br/>
                                 <input
                                     type="text"
-                                    placeholder="Invite 'demo' users here by email"
-                                    value={this.state.members.emails}
-                                    onChange={this.update('members', 'emails')}
+                                    placeholder="Complete MVP features and test beta with initial users"
+                                    value={this.state.notes}
+                                    onChange={this.update('notes')}
                                 />
                             </label>
                         </div>
                         
                         <div className="task-update-button-container">
-                            <button className="task-update-button">Create Team</button>
+                            <button className="task-update-button">Create project</button>
                         </div>
                     </form>
                 </div>
@@ -85,4 +100,4 @@ class TeamForm extends React.Component {
     }
 };
 
-export default TeamForm;
+export default ProjectForm;

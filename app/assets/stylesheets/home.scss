@@ -37,14 +37,27 @@
     margin-right: 30px;
 }
 
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .upcoming-tasks {
     margin: 30px auto;
 }
 
-.upcoming-tasks > h3 {
+.upcoming-tasks h3 {
     font-size: 16px;
     font-weight: 500;
     margin: 40px 25px 20px 25px;
+}
+
+.upcoming-tasks a {
+    margin: 40px 35px 20px 0px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #14aaf5;
+    cursor: pointer;
 }
 
 .upcoming-task-li {

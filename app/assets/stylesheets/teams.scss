@@ -125,9 +125,34 @@
     color: #9ca6af
 }
 
+.new-team-title {
+    line-height: 32px;
+    height: 42px;
+    font-weight: 500;
+    font-size: 24px;
+    width: 100%;
+    padding: 4px 10px 0px;
+}
+
+.new-team-form {
+    font-size: 12px;
+}
+
 
 .team-member {
     list-style: none;
     display: flex;
     margin: 20px 0;
+}
+
+.team-form-name {
+    position: relative;
+}
+
+.team-form-name input {
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid lightgray;
+    outline: none;
+    margin: 10px 0;
 }

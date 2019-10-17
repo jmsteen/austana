@@ -46,8 +46,7 @@ class TeamDetailSidebar extends React.Component {
 
     render () {
         
-        
-        const sideMembers = this.props.team.memberIds.map((id, idx) => {
+        const sideMembers = ()=>this.props.team.memberIds.map((id, idx) => {
             return <div key={idx} className={`side-team-member-${idx}`}>
                     {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
                 </div>
@@ -82,7 +81,7 @@ class TeamDetailSidebar extends React.Component {
                     {this.state.open && (
                         <div className="side-team-container">
                             <div className="side-team-members">
-                                {this.props.team && sideMembers}
+                                {this.props.team && sideMembers()}
                                 <div className="side-all-members">
                                     <p>All Members</p>
                                 </div>

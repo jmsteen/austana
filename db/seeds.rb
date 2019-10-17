@@ -10,7 +10,7 @@ require 'faker'
 
 users = [
     {
-        name: 'John',
+        name: 'John Steen',
         email: 'john@gmail.com',
         session_token: 'JQXfzVCnu4-rCKNcvPh7-A',
         password_digest: '$2a$12$6LBHB.ZQeH/7JOK0AC5ZIedcq3ju7lt9SpEbS1Z0Ch5g/FRjD5Z6K',
@@ -28,7 +28,7 @@ users = [
         password_digest: '$2a$12$n17LiFM50bgATvjgf1mtzOBGHyS2EldH/cuhP48spbZlw4z6VnqRK',
     },
     {
-        name: 'Guest',
+        name: 'Guest User',
         email: 'demo@demo.com',
         session_token: 'oJPwn9qgphYsDiBsIDUaKQ',
         password_digest: '$2a$12$NSVT1mYP1x80vAIygsmANeQx44C3Ap2OWQE6LZjqhZLNcIR3xPdR.',
@@ -39,28 +39,6 @@ users = [
 users.each do |user|
     User.create(user)
 end
-
-projects = [
-    {
-        name: 'Austana Beta Launch',
-        current_status: 'in-progress',
-        due_on: Faker::Date.forward(days: 60),
-        owner_id: 4,
-        team_id: 2
-    },
-    {
-        name: 'Eastside Tech Meetup',
-        current_status: 'Planning',
-        due_on: Faker::Date.forward(days: 60),
-        owner_id: 1,
-        team_id: 1
-    },
-]
-
-projects.each do |project|
-    Project.create(project)
-end
-
 
 teams = [
     {
@@ -75,6 +53,34 @@ teams = [
 
 teams.each do |team|
     Team.create(team)
+end
+
+projects = [
+    {
+        name: 'Austana Beta Launch',
+        current_status: 'in-progress',
+        due_on: Faker::Date.forward(days: 60),
+        owner_id: 4,
+        team_id: 1
+    },
+    {
+        name: 'Eastside Tech Meetup',
+        current_status: 'Planning',
+        due_on: Faker::Date.forward(days: 60),
+        owner_id: 3,
+        team_id: 2
+    },
+    {
+        name: 'Asana Clone',
+        current_status: 'in-progress',
+        due_on: Faker::Date.forward(days: 60),
+        owner_id: 1,
+        team_id: 1
+    },
+]
+
+projects.each do |project|
+    Project.create(project)
 end
 
 task_lists = [
@@ -118,22 +124,31 @@ task_lists = [
         owner_id: 4,
         project_id: 1,
     },
+    {
+        name: 'Discovery and Planning',
+        owner_id: 1,
+        project_id: 3,
+    },
+    {
+        name: 'Development',
+        owner_id: 1,
+        project_id: 3,
+    },
+    {
+        name: 'Testing',
+        owner_id: 1,
+        project_id: 3,
+    },
+    {
+        name: 'Deployment',
+        owner_id: 1,
+        project_id: 3,
+    },
 ]
 
 task_lists.each do |task_list|
     TaskList.create(task_list)
 end
-
-
-# 10.times do
-#     Task.create(
-#         due_on: Faker::Date.forward(days: 60),
-#         name: Faker::Company.bs,
-#         assignee_id: Faker::Number.between(from: 1, to: 3),
-#         project_id: Faker::Number.between(from: 1, to: 2),
-#         task_list_id: Faker::Number.between(from: 1, to: 8),
-#     )
-# end
 
 Task.create(
     due_on: Date.today + 3,

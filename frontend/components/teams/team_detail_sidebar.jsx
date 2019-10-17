@@ -1,13 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { fetchTeamMembers, fetchTeamMemberIds } from '../../actions/team_actions';
 
-const msp = state => {
-    return {}
+const msp = ({entities: { teams, users }}, ownProps) => {
+    
+    const team = teams[ownProps.match.params.teamId];
+    const memberIds = team ? team.memberIds : [];
+
+    return {
+        teams,
+        users,
+        memberIds
+    }
 };
 
-const mdp = dispatch => {
-    return {}
+const mdp = (dispatch, ownProps) => {
+   return {
+       fetchTeamMembers: (id) => dispatch(fetchTeamMembers(id)),
+       fetchTeamMemberIds: id => dispatch(fetchTeamMemberIds(id))
+   };
 };
 
 
@@ -17,6 +29,11 @@ class TeamDetailSidebar extends React.Component {
         this.state = { open: false }
         this.toggle = this.toggle.bind(this);
     };
+
+    componentDidMount() {
+        this.props.fetchTeamMembers(this.props.team.id)
+            .then(this.props.fetchTeamMemberIds(this.props.team.id));
+    }
 
     toggle() {
         this.setState({
@@ -28,6 +45,14 @@ class TeamDetailSidebar extends React.Component {
     };
 
     render () {
+        
+        
+        const sideMembers = this.props.team.memberIds.map((id, idx) => {
+            return <div key={idx} className={`side-team-member-${idx}`}>
+                    {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
+                </div>
+        });
+
         return <div>
                     <div className="side-team-open-detail" 
                     >
@@ -57,15 +82,7 @@ class TeamDetailSidebar extends React.Component {
                     {this.state.open && (
                         <div className="side-team-container">
                             <div className="side-team-members">
-                                <div className="side-team-member">
-                                    JS
-                                </div>
-                                <div className="side-team-member">
-                                    
-                                </div>
-                                <div className="side-team-member">
-                                    
-                                </div>
+                                {this.props.team && sideMembers}
                                 <div className="side-all-members">
                                     <p>All Members</p>
                                 </div>

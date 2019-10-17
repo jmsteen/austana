@@ -11,6 +11,12 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def index
+        team = Team.find(params[:team_id])
+        @users = team.members
+        render 'api/users/index'
+    end
+
     def update
         @user = User.find(current_user.id)
 

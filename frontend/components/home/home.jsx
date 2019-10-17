@@ -7,12 +7,13 @@ class Home extends React.Component {
     }
 
     render () {
+        let initials = this.props.currentUser.name ? this.props.currentUser.name.split(" ")[0] : "";
         return <section className="home">
             <div className="home-inner">
                 <header className="home-welcome">
                     <img src={window.welcome} alt="Welcome to Asana"/>
                     <div className="welcome-content">
-                        <p>Hello, {this.props.currentUser.name.split(" ")[0]}!</p>
+                        <p>Hello, {initials}!</p>
                         <p>Welcome to Austana. This is your home page, where you can
                             see upcoming tasks and recently touched projects. We've
                             filled in some examples in case it's helpful.

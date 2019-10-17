@@ -12,6 +12,13 @@ export const fetchTeam = id => {
     });
 };
 
+export const fetchTeamMembers = (id) => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/teams/${id}/users`
+    })
+}
+
 export const createTeam = team => {
     return $.ajax({
         method: 'POST',

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({entities: { teams }}, ownProps) => {
-    const team = teams[ownProps.match.params.teamId];
+    const team = teams[ownProps.match.params.teamId] || "";
     
     return {
         team

@@ -1,3 +1,128 @@
 // Place all the styles related to the api/Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recent-projects-list {
+    border-top: 1px solid #e8ecee;
+    box-shadow: none;
+    margin: 0 25px 0 10px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.project-icon {
+    height: 32px;
+    width: 32px;
+    fill: white;
+    background: none;
+}
+
+.project-add-icon {
+    height: 32px;
+    width: 32px;
+    fill: #9ca6af;
+    background: none;
+}
+
+.project-add-icon:hover {
+    fill: #767d83
+}
+
+
+.project-icon-large-0 {
+    height: 120px;
+    width: 120px;
+    background: #4186e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+}
+
+.project-icon-large-1 {
+    height: 120px;
+    width: 120px;
+    background: #fd9a00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+}
+
+.project-icon-large-2 {
+    height: 120px;
+    width: 120px;
+    background: #62d26f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+}
+
+.new-project-icon-large {
+      height: 120px;
+    width: 120px;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+    border: 2px dashed #9ca6af;
+    box-sizing: border-box;
+}
+
+.new-project-icon-large:hover {
+    border-color: #767d83;
+}
+
+.project-detail-item {
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 170px;
+    top: 0;
+    transition: top ease 0.5s;
+    transition: ease-out 0.5s;
+    justify-content: center;
+    border-radius: 20%;
+    margin-right: 54px;
+}
+
+.project-detail-item:hover {
+    top: -10px;
+    background: #f6f8f9;
+    // transition: .5s
+}
+
+.new-project-item {
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 170px;
+    top: 0;
+    transition: top ease 0.5s;
+    transition: ease-out 0.5s;
+    justify-content: center;
+    border-radius: 20%;
+    margin-right: 40px;
+}
+
+.new-project-item:hover {
+    top: -10px;
+    background: #f6f8f9;
+}
+
+.recent-project-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #151B26;
+    margin-top: 10px;
+    text-align: center;
+}

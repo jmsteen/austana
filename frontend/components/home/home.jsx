@@ -1,5 +1,6 @@
 import React from 'react';
 import UpcomingTasksContainer from '../tasks/upcoming_tasks_container';
+import RecentProjectsContainer from '../projects/recent_projects_container';
 
 class Home extends React.Component {
     constructor(props) {
@@ -15,12 +16,12 @@ class Home extends React.Component {
                     <div className="welcome-content">
                         <p>Hello, {initials}!</p>
                         <p>Welcome to Austana. This is your home page, where you can
-                            see upcoming tasks and recently touched projects. We've
-                            filled in some examples in case it's helpful.
+                            see your upcoming tasks and projects.
                         </p>
                     </div>
                 </header>
                 <UpcomingTasksContainer />
+                <RecentProjectsContainer />
             </div>
         </section>
     }

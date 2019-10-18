@@ -5,7 +5,7 @@ import { openPopup } from '../../actions/popup_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({entities: {tasks}}, ownProps) => {
-    const upcomingTasks = sortedTasksSelector(tasks).slice(0, 3);
+    const upcomingTasks = sortedTasksSelector(tasks).slice(0, 2);
 
     return {
         upcomingTasks

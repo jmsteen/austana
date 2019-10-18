@@ -3,18 +3,21 @@ import React from 'react';
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
-        this.taskRef = React.createRef();
+        // this.taskRef = React.createRef();
         this.state = {
             name: '',
             notes: '',
             due_on: new Date('December 31, 2019 01:15:00'),
-            assignee_id: 4,
+            assignee_id: "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        this.taskRef.current.focus();
+        // this.taskRef.current.focus();
+        this.setState({
+            assignee_id: this.props.currentUser.id
+        })
     }
 
     handleSubmit(e) {

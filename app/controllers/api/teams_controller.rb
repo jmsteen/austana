@@ -8,8 +8,8 @@ class Api::TeamsController < ApplicationController
 
     def create
         @team = Team.new(team_params)
-
         if @team.save
+            create_seed_data
             render 'api/teams/show'
         else
             render json: @team.errors.full_messages, status: 422
@@ -35,5 +35,39 @@ class Api::TeamsController < ApplicationController
     
     def team_params
         params.require(:team).permit(:name, :description)
+    end
+
+    def create_seed_data
+        project = Project.create(name: 'My First Project', due_on: '2019-12-31 19:38:15',
+                owner_id: current_user.id, team_id: @team.id)
+        Task.create(
+            due_on: Date.today + 3,
+            name: 'Take a look around',
+            assignee_id: current_user.id,
+            project_id: project.id
+        )
+        TaskList.create([
+            {
+                name: 'Discovery and Planning',
+                owner_id: current_user.id,
+                project_id: project.id,
+            },
+            {
+                name: 'Development',
+                owner_id: current_user.id,
+                project_id: project.id,
+            },
+            {
+                name: 'Testing',
+                owner_id: current_user.id,
+                project_id: project.id,
+            },
+            {
+                name: 'Deployment',
+                owner_id: current_user.id,
+                project_id: project.id,
+            }
+        ])
+        
     end
 end

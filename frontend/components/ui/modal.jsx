@@ -8,9 +8,9 @@ const Modal = ({ modal, closeModal }) => {
         return null;
     }
     let component;
-    switch (modal) {
+    switch (modal.formType) {
         case 'taskForm':
-            component = <TaskFormContainer />
+            component = <TaskFormContainer projectId={modal.projectId} taskListId={modal.taskListId}/>
             break;
         default:
             return null;

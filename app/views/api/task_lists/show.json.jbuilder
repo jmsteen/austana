@@ -1,0 +1,1 @@
+json.partial! 'task_list', task_list: @task_list

@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
         fetchTaskLists: projectId => dispatch(fetchTaskLists(projectId)),
         updateTaskList: taskList => dispatch(updateTaskList(taskList)),
         fetchTasks: () => dispatch(fetchTasks()),
-        openModal: (type) => dispatch(openModal(type)),
+        openModal: (type, projectId, taskListId) => dispatch(openModal(type, projectId, taskListId)),
         openPopup: () => dispatch(openPopup('taskDetail')),
         fetchCurrentTask: id => dispatch(fetchCurrentTask(id)),
         updateTask: task => dispatch(updateTask(task))

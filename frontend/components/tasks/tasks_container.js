@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Tasks from './tasks';
 import { fetchTasks } from '../../actions/task_actions';
 import { openModal } from '../../actions/modal_actions';
-import { recentlyAssignedSelector, todaySelector, laterSelector, upcomingSelector } from '../../reducers/selectors';
+import { recentlyAssignedSelector, todaySelector, laterSelector, upcomingSelector, completedSelector } from '../../reducers/selectors';
 
 const mapStateToProps = ({entities: { tasks }}, ownProps) => {
     
@@ -11,6 +11,7 @@ const mapStateToProps = ({entities: { tasks }}, ownProps) => {
         recentlyAssignedTasks: recentlyAssignedSelector(tasks),
         upcomingTasks: upcomingSelector(tasks),
         todayTasks: todaySelector(tasks),
+        completedTasks: completedSelector(tasks),
         laterTasks: laterSelector(tasks)
     };
 };

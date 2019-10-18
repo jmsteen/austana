@@ -1,7 +1,11 @@
 class Api::TaskListsController < ApplicationController
     before_action :require_signed_in
     def show
-        @task_list = params[:id]
+        if params[:id] != "undefined"
+            @task_list = TaskList.find(params[:id])
+        else
+            @task_list = current_user.task_lists.first
+        end
         render 'api/task_lists/show'
     end
 

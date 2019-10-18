@@ -16,12 +16,13 @@ class Tasks extends React.Component {
     }
 
     render () {
+        const completedTasks = this.props.completedTasks || [];
         const recentlyAssignedTasks = this.props.recentlyAssignedTasks || [];
         const upcomingTasks = this.props.upcomingTasks || [];
         const todayTasks = this.props.todayTasks || [];
         const laterTasks = this.props.laterTasks || [];
         
-        const completedTasks = this.props.tasks.filter(task=>task.completed);
+        // const completedTasks = this.props.tasks.filter(task=>task.completed);
         let completedMessage
         if (completedTasks.length < 1) {
             completedMessage = 'No tasks have been completed yet.'
@@ -56,6 +57,9 @@ class Tasks extends React.Component {
                         />
                         <TaskSection type={'later'}
                             tasks={laterTasks}
+                        />
+                        <TaskSection type={'completed'}
+                            tasks={completedTasks}
                         />
                 </div>
             </div>

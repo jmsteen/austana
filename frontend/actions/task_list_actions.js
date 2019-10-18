@@ -24,6 +24,15 @@ export const fetchTaskLists = (projectId) => dispatch => {
         .then(taskLists => dispatch(receiveTaskLists(taskLists)));
 };
 
+export const fetchTaskList = id => dispatch => {
+    
+    return TaskListApiUtil.fetchTaskList(id)
+        .then(taskList=> {
+            dispatch(receiveTaskList(taskList))
+            return taskList
+        });
+}
+
 export const updateTaskList = (taskList) => dispatch => {
     return TaskListApiUtil.updateTaskList(taskList)
         .then(taskList => dispatch(receiveTaskList(taskList)));

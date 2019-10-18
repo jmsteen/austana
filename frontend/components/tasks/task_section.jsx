@@ -38,6 +38,8 @@ class TaskSection extends React.Component {
                     return "Upcoming";
                 case "later":
                     return 'Later';
+                case "completed":
+                    return 'Completed';
                 default:
                     return "Recently assigned"
             }

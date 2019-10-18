@@ -5,6 +5,13 @@ export const fetchTaskLists = (projectId) => {
     });
 };
 
+export const fetchTaskList = id => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/task_lists/${id}`
+    });
+};
+
 export const updateTaskList = taskList => {
     return $.ajax({
         method: 'PATCH',

@@ -9,12 +9,17 @@ class TaskForm extends React.Component {
             notes: '',
             due_on: new Date('December 31, 2019 01:15:00'),
             assignee_id: "",
+            task_list_id: this.props.taskListId,
+            project_id: this.props.projectId
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        // this.taskRef.current.focus();
+        this.props.fetchTaskList(this.state.task_list_id)
+            .then((taskList) => this.setState({
+                task_list_id: taskList.id
+            }));
         this.setState({
             assignee_id: this.props.currentUser.id
         })

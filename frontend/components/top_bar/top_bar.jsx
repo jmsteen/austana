@@ -5,6 +5,7 @@ import { ProtectedRoute } from '../../util/route_util';
 import HomeNav from '../../components/navbars/home-nav';
 import TasksNav from '../../components/navbars/tasks-nav';
 import TeamNav from '../../components/navbars/team-nav';
+import ProjectsNav from '../../components/navbars/projects-nav';
  
 class TopBar extends React.Component {
     constructor(props) {
@@ -27,6 +28,7 @@ class TopBar extends React.Component {
                         <Switch>
                             <ProtectedRoute path='/tasks' component={TasksNav} />
                             <ProtectedRoute exact path='/teams/:teamId' component={TeamNav} />
+                            <ProtectedRoute exact path='/projects/:projectId' component={ProjectsNav} />
                             <ProtectedRoute exact path='/home' component={HomeNav} />
                         </Switch>
                     </section>

@@ -2,6 +2,7 @@ import RecentProjects from './recent_projects';
 import { fetchProjects } from '../../actions/project_actions';
 import { connect } from 'react-redux';
 import { openPopup } from '../../actions/popup_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ entities: { projects } }, ownProps) => {
    
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecentProjects);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecentProjects));

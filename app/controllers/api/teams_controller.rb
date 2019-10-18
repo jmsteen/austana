@@ -40,34 +40,35 @@ class Api::TeamsController < ApplicationController
     def create_seed_data
         project = Project.create(name: 'My First Project', due_on: '2019-12-31 19:38:15',
                 owner_id: current_user.id, team_id: @team.id)
+        task_list1 = TaskList.create(
+                    name: 'Discovery and Planning',
+                    owner_id: current_user.id,
+                    project_id: project.id
+                    )
+        TaskList.create([
+                {
+                    name: 'Development',
+                    owner_id: current_user.id,
+                    project_id: project.id,
+                },
+                {
+                    name: 'Testing',
+                    owner_id: current_user.id,
+                    project_id: project.id,
+                },
+                {
+                    name: 'Deployment',
+                    owner_id: current_user.id,
+                    project_id: project.id,
+                }
+            ])
         Task.create(
             due_on: Date.today + 3,
             name: 'Take a look around',
             assignee_id: current_user.id,
-            project_id: project.id
+            project_id: project.id,
+            task_list_id: task_list1.id
         )
-        TaskList.create([
-            {
-                name: 'Discovery and Planning',
-                owner_id: current_user.id,
-                project_id: project.id,
-            },
-            {
-                name: 'Development',
-                owner_id: current_user.id,
-                project_id: project.id,
-            },
-            {
-                name: 'Testing',
-                owner_id: current_user.id,
-                project_id: project.id,
-            },
-            {
-                name: 'Deployment',
-                owner_id: current_user.id,
-                project_id: project.id,
-            }
-        ])
         
     end
 end

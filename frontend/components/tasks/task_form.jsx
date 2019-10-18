@@ -37,6 +37,7 @@ class TaskForm extends React.Component {
     }
 
     render () {
+        
         return (
             <div>
                 <form className="task-form-container" onSubmit={this.handleSubmit}>
@@ -66,8 +67,8 @@ class TaskForm extends React.Component {
                         />
                         <p>In</p>
                         <input 
-                            className="task-project"
-                            placeholder="Discovery & Planning"
+                            className="task-project"   
+                            placeholder={this.props.taskList && (this.props.taskList.name) || "Discovery & Planning"}
                             disabled
                         />
                     </div>

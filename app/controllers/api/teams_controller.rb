@@ -41,10 +41,10 @@ class Api::TeamsController < ApplicationController
         project = Project.create(name: 'My First Project', due_on: '2019-12-31 19:38:15',
                 owner_id: current_user.id, team_id: @team.id)
         task_list1 = TaskList.create(
-                    name: 'Discovery and Planning',
-                    owner_id: current_user.id,
-                    project_id: project.id
-                    )
+                name: 'Discovery and Planning',
+                owner_id: current_user.id,
+                project_id: project.id
+                )
         TaskList.create([
                 {
                     name: 'Development',

@@ -41,7 +41,7 @@ class Api::TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:due_on, :due_at, :name, :notes,
+        params.require(:task).permit(:due_on, :due_at, :name, :notes, :completed,
             :assignee_id, :parent_task_id, :task_list_id, :start_on, :project_id)
     end
 end

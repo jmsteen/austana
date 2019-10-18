@@ -29,6 +29,17 @@
     fill: #767d83
 }
 
+.small-project-add-icon {
+    height: 12px;
+    width: 12px;
+    fill: #9ca6af;
+    background: none;
+}
+
+.small-project-add-icon:hover {
+    fill: #767d83
+}
+
 
 .project-icon-large-0 {
     height: 120px;
@@ -125,4 +136,60 @@
     color: #151B26;
     margin-top: 10px;
     text-align: center;
+}
+
+.projects-container {
+    background: #f6f8f9;
+    display: flex;
+    padding: 15px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.task-list-container {
+    width: 270px;
+    margin: 0 10px;
+}
+
+.task-list {
+    width: 270px;
+    height: 501px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-task-list-header {
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    color: #151b26;
+    margin: 10px 0;
+}
+
+.project-task {
+    background: white;
+    list-style: none;
+    padding: 15px;
+    font-size: 13px;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 100px;
+    position: relative;
+    transition: top ease .2s;
+    top: 0;
+}
+
+.project-task:hover {
+    top: -2px;
+}
+
+#new-project-task {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

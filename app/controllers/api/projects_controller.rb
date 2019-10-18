@@ -11,6 +11,7 @@ class Api::ProjectsController < ApplicationController
         @project.owner_id = current_user.id
 
         if @project.save
+            create_seed_data
             render 'api/projects/show'
         else
             render json: @project.errors.full_messages, status: 422
@@ -43,6 +44,38 @@ class Api::ProjectsController < ApplicationController
     def project_params
         params.require(:project).permit(:name, :current_status, :due_on, :team_id,
             :color, :notes)
+    end
+
+    def create_seed_data
+        task_list1 = TaskList.create(
+                    name: 'Discovery and Planning',
+                    owner_id: current_user.id,
+                    project_id: @project.id
+                    )
+        TaskList.create([
+                {
+                    name: 'Development',
+                    owner_id: current_user.id,
+                    project_id: @project.id,
+                },
+                {
+                    name: 'Testing',
+                    owner_id: current_user.id,
+                    project_id: @project.id,
+                },
+                {
+                    name: 'Deployment',
+                    owner_id: current_user.id,
+                    project_id: @project.id,
+                }
+            ])
+        Task.create(
+            due_on: Date.today + 3,
+            name: 'Create design docs',
+            assignee_id: current_user.id,
+            project_id: @project.id,
+            task_list_id: task_list1.id
+        )
     end
 
 end

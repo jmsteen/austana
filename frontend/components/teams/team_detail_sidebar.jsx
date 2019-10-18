@@ -87,7 +87,7 @@ class TeamDetailSidebar extends React.Component {
                         <div className="side-team-container">
                             <div className="side-team-members">
                                 {this.props.team && sideMembers}
-                                <div className="side-all-members">
+                        <div className="side-all-members" onClick={()=>this.props.history.push(`/teams/${this.props.team.id}`)}>
                                     <p>All Members</p>
                                 </div>
                             </div>

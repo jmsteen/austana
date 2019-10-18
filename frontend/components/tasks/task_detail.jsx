@@ -31,6 +31,14 @@ class TaskDetail extends React.Component {
             project_id: this.props.currentTask.project_id,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.markComplete = this.markComplete.bind(this);
+    }
+
+    markComplete() {
+        this.props.updateTask({
+            completed: !this.props.currentTask.completed,
+            id: this.props.currentTask.id
+        });
     }
 
     handleSubmit(e) {
@@ -51,11 +59,11 @@ class TaskDetail extends React.Component {
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
             'Sep', 'Oct', 'Nov', 'Dec'];
         dueDate = `${months[dueDate.getMonth()]}` + ` ${dueDate.getDate()+1}`;
-
+        
         return <div className="task-detail-container">
             <div className="task-detail">
                 <nav className="task-detail-nav">
-                    <button>
+                    <button onClick={this.markComplete} id={this.props.currentTask.completed && ('task-detail-nav-complete')}>
                         <svg className="mark-task-complete" viewBox="0 0 32 32">
                             <path d="M10.9,26.2c-0.5,0-1-0.2-1.4-0.6l-6.9-6.9
                             c-0.8-0.8-0.8-2,0-2.8s2-0.8,2.8,0l5.4,5.4l16-15.9
@@ -63,7 +71,7 @@ class TaskDetail extends React.Component {
                             C11.9,26,11.4,26.2,10.9,26.2z">
                             </path>
                         </svg>
-                        Mark Complete
+                        {this.props.currentTask.completed && ('Completed') || 'Mark Complete'}
                     </button> 
                     <svg className="task-close" viewBox="0 0 32 32" onClick={this.props.closePopup}>
                         <path 

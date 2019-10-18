@@ -99,10 +99,19 @@
 }
 
 .task-detail-nav button:hover {
-    background: #f6f8f9;
-    color: #273240;
-    fill: #273240;
+    background: #c5ffc569;
+    color: #01711b;
+    fill: #00bd2d;
     border-style: solid;
+    border-color: #00bd2d;
+}
+
+#task-detail-nav-complete {
+    background: #c5ffc569;
+    color: #01711b;
+    fill: #00bd2d;
+    border-style: solid;
+    border-color: #00bd2d;
 }
 
 .task-form-assignment {

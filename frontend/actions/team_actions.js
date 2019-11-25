@@ -39,7 +39,10 @@ export const fetchTeams = () => dispatch => {
 };
 
 export const fetchTeam = (id) => dispatch => {
-    return TeamApiUtil.fetchTeam(id).then(team => dispatch(receiveTeam(team)))
+    return TeamApiUtil.fetchTeam(id).then(team => {
+        dispatch(receiveTeam(team))
+        return team;
+    })
 };
 
 export const createTeam = (team) => dispatch => {
@@ -47,7 +50,9 @@ export const createTeam = (team) => dispatch => {
 };
 
 export const updateTeam = (team) => dispatch => {
-    return TeamApiUtil.updateTeam(team).then(team => dispatch(receiveTeam(team)))
+    return TeamApiUtil.updateTeam(team).then(team => {
+        dispatch(receiveTeam(team))
+    })
 };
 
 export const fetchTeamMemberIds = (id) => dispatch => {

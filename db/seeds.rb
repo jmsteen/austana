@@ -36,14 +36,16 @@ users = [
 
 ]
 
-users.each do |user|
-    User.create(user)
-end
+User.create(users[0])
+User.create(users[1])
+User.create(users[2])
+demo_user = User.create(users[3])
 
 teams = [
     {
         name: 'Engineering',
-        description: 'Responsible for web development and architecture'
+        description: 'Responsible for web development and architecture',
+        members: [{name: "Guest User", email: "demo@demo.com"}]
     },
     {
         name: 'Marketing',
@@ -51,9 +53,10 @@ teams = [
     },
 ]
 
-teams.each do |team|
-    Team.create(team)
-end
+engineering_team = Team.create(teams[0])
+marketing_team = Team.create(teams[1])
+
+demo_user.teams << engineering_team
 
 projects = [
     {

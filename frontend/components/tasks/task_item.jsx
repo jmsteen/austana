@@ -44,7 +44,7 @@ class TaskItem extends React.Component {
                 <div className="emoji">{this.props.emoji}</div>
                     <svg className="checkmark" 
                         onClick={this.markComplete}
-                        id={this.props.task.completed && ('checkmark-complete')}
+                        id={this.props.task.completed ? 'checkmark-complete' : undefined}
                         viewBox="0 0 32 32">
                         {/* <path d="M10.9,26.2c-0.5,0-1-0.2-1.4-0.6l-6.9-6.9c-0.8-0.8-0.8-2,0-2.8s2-0.8,2.8,0l5.4,5.4l16-15.9c0.8-0.8,2-0.8,2.8,0s0.8,2,0,2.8L12.3,25.6C11.9,26,11.4,26.2,10.9,26.2z">
                         </path> */}

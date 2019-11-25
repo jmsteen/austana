@@ -56,7 +56,7 @@ class NewDropDown extends React.Component {
                           
                             <button onClick={()=>this.props.openModal('taskForm')}>Task</button> 
                             <button onClick={()=>this.props.openPopup('projectForm')}>Project</button> 
-                           
+                            <button onClick={()=>this.props.openPopup('teamForm')}>Team</button> 
                         </div>
                         
                         <div className="arrow-anchor">

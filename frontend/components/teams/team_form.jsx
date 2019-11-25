@@ -4,27 +4,21 @@ class TeamForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            team: {
                 name: "",
                 description: "",
-            },
-            members: {
-                emails: ""
-            } 
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createTeam(this.state.team)
+        this.props.createTeam(this.state)
     };
 
-    update(type, field) {
+    update(field) {
             return (e) => {
-                let subState = { [field]: e.target.value }
                 this.setState({
-                    [type]: subState
+                    [field]: e.target.value
                 });
             };
     };
@@ -58,19 +52,18 @@ class TeamForm extends React.Component {
                                 <input
                                     type="text"
                                     placeholder="For example, 'Marketing' or 'Design'..."
-                                    value={this.state.team.name}
-                                    onChange={this.update('team', 'name')}
+                                    value={this.state.name}
+                                    onChange={this.update('name')}
                                 />
                             </label>
                         </div>
-                        <div className="team-form-name">
-                            <label>Members
+                        <div className="team-form-description">
+                            <label>Description
                                 <br/>
-                                <input
-                                    type="text"
-                                    placeholder="Invite 'demo' users here by email"
-                                    value={this.state.members.emails}
-                                    onChange={this.update('members', 'emails')}
+                                <textarea
+                                    placeholder="What are this team's primary responsibilities?"
+                                    value={this.state.description}
+                                    onChange={this.update('description')}
                                 />
                             </label>
                         </div>

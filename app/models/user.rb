@@ -18,11 +18,8 @@ class User < ApplicationRecord
         class_name: :Project,
         foreign_key: :owner_id
 
-    has_many :teams,
-        through: :projects,
-        source: :team
+    has_and_belongs_to_many :teams
     
-
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(email, password)

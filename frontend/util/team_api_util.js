@@ -31,6 +31,8 @@ export const updateTeam = team => {
     return $.ajax({
         method: 'PATCH',
         url: `api/teams/${team.id}`,
-        data: { team }
+        data: {
+            team
+        }
     });
 };

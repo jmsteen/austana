@@ -4,7 +4,7 @@ import TeamDetailSidebar from './team_detail_sidebar'
 class TeamSideBar extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { open: false }
+        this.state = { open: true }
         this.toggle = this.toggle.bind(this);
     }
 
@@ -46,21 +46,7 @@ class TeamSideBar extends React.Component {
             {this.state.open && (
             <div>
                 { teams }
-                    {/* <div className="side-add-team" > 
-                    <svg
-                        onClick={() => this.props.openPopup('teamForm')} 
-                        className="team-icon-plus-gray" 
-                        viewBox="0 0 24 24"
-                    >
-                        <path 
-                            d="M10,10V4c0-1.1,0.9-2,2-2s2,0.9,2,2v6h6
-                            c1.1,0,2,0.9,2,2s-0.9,2-2,2h-6v6
-                            c0,1.1-0.9,2-2,2s-2-0.9-2-2v-6H4
-                            c-1.1,0-2-0.9-2-2s0.9-2,2-2H10z">
-                        </path>
-                    </svg>
-                        <p onClick={() => this.props.openPopup('teamForm')}>Add Team</p>
-                    </div> */}
+                <div onClick={() => this.props.openPopup('teamForm')} className="create-team">+ Add Team</div>
             </div>
             )}
         </div>

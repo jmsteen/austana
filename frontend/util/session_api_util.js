@@ -6,6 +6,14 @@ export const signup = (user) => {
     });
 };
 
+export const createTeamMember = (teamMember, teamId) => {
+    return $.ajax({
+        method: 'POST',
+        url: `/api/teams/${teamId}/users`,
+        data: { teamMember }
+    })
+}
+
 export const login = (user) => {
     return $.ajax({
         method: 'POST',

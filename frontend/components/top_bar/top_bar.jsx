@@ -22,7 +22,6 @@ class TopBar extends React.Component {
             return userNames.map(partOfName => partOfName[0])
             };
         }
-
         return <nav className="item top-bar">
                     <section className="top-bar-left">
                         <Switch>

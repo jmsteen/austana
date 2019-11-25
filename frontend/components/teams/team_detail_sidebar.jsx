@@ -103,10 +103,8 @@ class TeamDetailSidebar extends React.Component {
                                 </svg>
                         <p onClick={()=>this.props.openPopup('projectForm')}>Create a Project</p>
                             </div>
-
                         </div>
                     )}
-                    
                 </div>
     }
 }

@@ -3,49 +3,111 @@ import React from 'react';
 class TeamOverview extends React.Component {
     constructor(props) {
         super(props)
-        
-        let description = this.props.team ? this.props.team.description : ""
+        let members = this.props.team ? this.props.team.members : [];
+        let description = this.props.team ? this.props.team.description : "";
         this.state = { 
-            description: description
+            team: {
+                description: description,
+                members: members,
+                id: this.props.match.params.teamId
+            },
+            member: {
+                name: "",
+                email: ""
+            },
+            newMember: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.addMember = this.addMember.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateTeam(this.state);
+        this.props.updateTeam(this.state.team);
+    }
+
+    addMember(e) {
+        e.preventDefault();
+
+        const {team, member} = this.state;
+        team.members.push(member);
+
+        this.props.updateTeam(team);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.teamId != this.props.match.params.teamId) {
+            let newTeamId = this.props.match.params.teamId
+            this.props.fetchTeam(newTeamId)
+                .then((team) => this.setState({
+                    team: {
+                        description: team.description,
+                        name: team.name,
+                        members: team.members,
+                        id: team.id
+                    }
+                }))
+                .then(() => this.props.fetchTeams())
+                // .then(() => this.props.fetchTeamMembers(newTeamId))
+                // .then(() => this.props.fetchTeamMemberIds(newTeamId))
+                .then(() => this.props.fetchProjects())
+        }
     }
 
     componentDidMount() {
-        this.props.fetchTeams()
-            .then(()=>this.props.fetchTeamMembers(this.props.team.id))
-            .then(()=>this.props.fetchTeamMemberIds(this.props.team.id))
-            .then(()=>this.props.fetchProjects())
-            .then(()=>this.setState({
-                description: this.props.team.description,
-                id: this.props.team.id,
-                name: this.props.team.name}))
+        let teamId = this.props.teamId
+        this.props.fetchTeam(teamId)
+            .then((team) => this.setState({
+                team: {
+                    description: team.description,
+                    name: team.name,
+                    members: team.members,
+                    id: team.id
+                }
+            }))
+            .then(() => this.props.fetchTeams())
+            // .then(() => this.props.fetchTeamMembers(teamId))
+            // .then(() => this.props.fetchTeamMemberIds(teamId))
+            .then(() => this.props.fetchProjects())
     }
 
-    update() {
+    toggle() {
+        this.setState({ newMember: !this.state.newMember});
+    }
+
+    update(field) {
         return e => {
-            this.setState({['description']: e.target.value})
+            if (field === 'description') {
+                const teamState = this.state.team;
+                teamState[field] = e.target.value;
+                this.setState({
+                    member: teamState
+                })
+            } else {
+                const memberState = this.state.member;
+                memberState[field] = e.target.value;
+                this.setState({
+                    member: memberState
+                })
+            }
         };
     };
 
     render() {
         let projectDivs = [];
         if (this.props.projects) {
-
             projectDivs = this.props.projects.map((project, i) => {
-                return <div onClick={()=>this.props.history.push(`/projects/${project.id}`)} key={project.id} className="project-detail-item">
-                    <div className={`project-icon-large-${i}`}>
-                        <svg className="project-icon" viewBox="0 0 32 32">
-                            <path d="M25.5,26.5H6.5A4.51,4.51,0,0,1,2,22V10A4.51,4.51,0,0,1,6.5,5.5h19A4.51,4.51,0,0,1,30,10V22A4.51,4.51,0,0,1,25.5,26.5Zm-19-18A1.5,1.5,0,0,0,5,10V22a1.5,1.5,0,0,0,1.5,1.5h19A1.5,1.5,0,0,0,27,22V10a1.5,1.5,0,0,0-1.5-1.5Z" /><rect x="21" y="11.5" width="1" height="1" /><rect x="7.5" y="11" width="2" height="2" /><path d="M10,13.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="11" width="12" height="2" /><path d="M25,13.5H12v-3H25Zm-12-1H24v-1H13Z" /><rect x="7.5" y="15" width="2" height="2" /><path d="M10,17.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="15" width="7" height="2" /><path d="M20,17.5H12v-3h8Zm-7-1h6v-1H13Z" /><rect x="7.5" y="19" width="2" height="2" /><path d="M10,21.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="19" width="10" height="2" /><path d="M23,21.5H12v-3H23Zm-10-1h9v-1H13Z" />
-                        </svg>
+                if (project.team_id === this.props.match.params.teamId) {
+                    return <div onClick={()=>this.props.history.push(`/projects/${project.id}`)} key={project.id} className="project-detail-item">
+                        <div className={`project-icon-large-${i}`}>
+                            <svg className="project-icon" viewBox="0 0 32 32">
+                                <path d="M25.5,26.5H6.5A4.51,4.51,0,0,1,2,22V10A4.51,4.51,0,0,1,6.5,5.5h19A4.51,4.51,0,0,1,30,10V22A4.51,4.51,0,0,1,25.5,26.5Zm-19-18A1.5,1.5,0,0,0,5,10V22a1.5,1.5,0,0,0,1.5,1.5h19A1.5,1.5,0,0,0,27,22V10a1.5,1.5,0,0,0-1.5-1.5Z" /><rect x="21" y="11.5" width="1" height="1" /><rect x="7.5" y="11" width="2" height="2" /><path d="M10,13.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="11" width="12" height="2" /><path d="M25,13.5H12v-3H25Zm-12-1H24v-1H13Z" /><rect x="7.5" y="15" width="2" height="2" /><path d="M10,17.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="15" width="7" height="2" /><path d="M20,17.5H12v-3h8Zm-7-1h6v-1H13Z" /><rect x="7.5" y="19" width="2" height="2" /><path d="M10,21.5H7v-3h3Zm-2-1H9v-1H8Z" /><rect x="12.5" y="19" width="10" height="2" /><path d="M23,21.5H12v-3H23Zm-10-1h9v-1H13Z" />
+                            </svg>
+                        </div>
+                        <h4 className="recent-project-name">{project.name}</h4>
                     </div>
-                    <h4 className="recent-project-name">{project.name}</h4>
-                </div>
+                }
             });
         }
         
@@ -58,8 +120,8 @@ class TeamOverview extends React.Component {
                             <textarea
                                 className="description-edit"
                                 onBlur={this.handleSubmit}
-                                value={this.state.description}
-                                onChange={this.update()}
+                                value={this.state.team.description}
+                                onChange={this.update('description')}
                                 placeholder='Click to add item description...'
                             />
                         </form>
@@ -67,7 +129,20 @@ class TeamOverview extends React.Component {
 
                     <div className="team-members">
                         <h3>Members</h3>
-                        <ul> {this.props.memberIds && this.props.users && (this.props.memberIds.map((id, idx) => {
+                        <ul> {this.state.team.members.length > 0 && (this.state.team.members.map((member, idx) => {
+                                return <li key={idx} className="team-member">
+                                    <div className={`member-icon-${idx}`}>
+                                        {member.name.split(" ").map(name => name[0]).join("")}
+                                    </div>
+                                    <div className="member-info">
+                                        <p>{member.name}</p>
+                                        <p>{member.email}</p>
+                                    </div>
+                                </li>
+                            })
+                        )} 
+                        </ul>
+                        {/* <ul> {this.props.memberIds && this.props.users && (this.props.memberIds.map((id, idx) => {
                                 return <li key={id} className="team-member">
                                     <div className={`member-icon-${idx}`}>
                                         {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
@@ -79,7 +154,25 @@ class TeamOverview extends React.Component {
                                 </li>
                             })
                         )} 
-                        </ul>
+                        </ul> */}
+                        {this.state.newMember && (
+                            <form onSubmit={this.addMember}>
+                                <input type="text"
+                                required
+                                placeholder="Name"
+                                value={this.state.member.name}
+                                onChange={this.update('name')}
+                                />
+                                <input type="text"
+                                required
+                                placeholder="Email"
+                                value={this.state.member.email}
+                                onChange={this.update('email')}
+                                />
+                                <button>Submit</button>
+                            </form>
+                        )}
+                        <div onClick={this.toggle} className="add-member">+ Add Member</div>
                     </div>
                 </div>
 

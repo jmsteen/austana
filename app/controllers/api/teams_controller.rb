@@ -8,7 +8,9 @@ class Api::TeamsController < ApplicationController
 
     def create
         @team = Team.new(team_params)
+        @team.members.push({"name": current_user.name, "email": current_user.email})
         if @team.save
+            current_user.teams << @team
             create_seed_data
             render 'api/teams/show'
         else
@@ -18,7 +20,7 @@ class Api::TeamsController < ApplicationController
 
     def update
         @team = Team.find(params[:id])
-
+        
         if @team.update(team_params)
             render 'api/teams/show'
         else
@@ -34,11 +36,11 @@ class Api::TeamsController < ApplicationController
     private
     
     def team_params
-        params.require(:team).permit(:name, :description)
+        params.require(:team).permit(:name, :description, members: [:name, :email])
     end
 
     def create_seed_data
-        project = Project.create(name: 'My First Project', due_on: '2019-12-31 19:38:15',
+        project = Project.create(name: 'My New Project', due_on: '2019-12-31 19:38:15',
                 owner_id: current_user.id, team_id: @team.id)
         task_list1 = TaskList.create(
                 name: 'Discovery and Planning',

@@ -24,11 +24,12 @@
     width: 12px;
     fill: #6f7782;
     padding: 0 10px 0 10px;
-    margin-left: auto
+    margin-left: auto;
+    transform: rotate(180deg);
 }
 
 .sidebar-accord-rotate {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
 }
 
 .side-add-team {
@@ -114,7 +115,7 @@
 .side-team-open-detail {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.16);
+    // background: rgba(255, 255, 255, 0.16);
     color: #cbd4db;
     padding: 0 10px;
     font-size: 14px;
@@ -122,8 +123,12 @@
     cursor: pointer;
 }
 
-.side-team-open-detail:hover {
+.side-team-open-detail:active {
     background: rgba(255,255,255,.2);
+}
+
+.side-team-open-detail:hover {
+    background: rgba(255, 255, 255, 0.16)
 }
 
 .side-team-toggle {
@@ -149,7 +154,22 @@
 }
 
 .side-footer {
-    
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    svg {
+        height: 40px;
+        width: 40px;
+        fill: #7e7e7e;
+        margin: 15px 5px;
+        cursor: pointer;
+    }
+    svg:hover {
+        fill: #c5c3c3;
+    }
 }
 
 .side-all-members {

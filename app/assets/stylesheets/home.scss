@@ -1,0 +1,130 @@
+.checkmark {
+    height: 12px;
+    width: 12px;
+    margin-right: 10px;
+    fill: #6f7782;
+    border: 1px solid #cbd4db;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.checkmark:hover {
+   background: #e2fffa;
+   border-color: #25e8c8;
+   fill: #25e8c8;
+}
+
+#checkmark-complete {
+    background: #7aff79;
+    border-color: #00fd37;
+    fill: #009220;
+}
+
+.home {
+    margin: 0 120px;
+}
+
+.home-inner {
+    width: 850px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1230px){
+    .home-inner {
+        width: 680px;
+    }   
+
+} 
+.home-welcome {
+    display: flex;
+}
+
+.home-welcome > img {
+    margin-right: 30px;
+}
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upcoming-tasks {
+    margin: 0px auto;
+}
+
+.upcoming-tasks h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 40px 25px 20px 25px;
+}
+
+.upcoming-tasks a {
+    margin: 40px 35px 20px 0px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #14aaf5;
+    cursor: pointer;
+}
+
+.upcoming-task-li {
+    cursor: pointer;
+}
+
+.emoji {
+    padding-right: 5px;
+}
+
+.home-task-list {
+    border: 2px solid #e8ecee;
+    margin: 0 25px;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px 0 rgba(21, 27, 38, 0.08);
+}
+
+
+.home-task-list > li {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    color: #2e2a2a;
+    font-size: 13px;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #dedede
+}
+
+.home-task-list > li:hover {
+    background: #f6f8f9;
+}
+
+.home-task-list > li > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-task-list > li > p:last-of-type {
+    font-size: 11px;
+    color: gray;
+}
+
+.home-task-list > li:last-of-type {
+    border-bottom: none
+}
+
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-content :first-child {
+    font-size: 20px;
+    margin: 25px 0px;
+    font-weight: 500;
+}
+
+.welcome-content :last-child {
+    line-height: 1.5;
+    color: #747a80;
+}

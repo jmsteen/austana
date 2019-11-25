@@ -2,11 +2,12 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import Root from './root';
 import configureStore from './store/store';
-import { login, logout, signup } from './actions/session_actions';
+import * as TaskActions from './actions/task_actions'
+import { logout } from './actions/session_actions';
 
-window.login = login;
 window.logout = logout;
-window.signup = signup;
+
+window.TaskActions = TaskActions;
 
 document.addEventListener("DOMContentLoaded", ()=>{
     let store;

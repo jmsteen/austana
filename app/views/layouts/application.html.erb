@@ -4,7 +4,7 @@
     <title>Austana</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset="UTF-8">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -12,6 +12,9 @@
   <body>
     <script type="text/javascript">
       window.logo = "<%= image_url('logo.png') %>"
+      window.welcome = "<%= image_url('austana-welcome.svg') %>"
+      window.onboardWelcome = "<%= image_url('welcome.svg') %>"
+      window.checkmark = "<%= image_url('checkmark.svg') %>"
     </script>
     <%= yield %>
   </body>

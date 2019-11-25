@@ -1,0 +1,42 @@
+.new-project-form {
+    min-width: 555px;
+      max-width: 910px;
+      width: 70%;
+      max-height: 618px;
+      min-height: 300px;
+      background: white;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+}
+
+.new-project-form-name {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.new-project-form-name > label {
+    width: 60%;
+    margin-right: 50px;
+}
+
+.new-project-form-input {
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid lightgray;
+    outline: none;
+    margin: 10px 0;
+    text-overflow: ellipsis;
+}
+
+.new-project-select {
+    padding: 10px 5px;
+    width: 100%;
+    border: 1px solid lightgray;
+    outline: none;
+    margin: 10px 0;
+    height: 37px;
+}

@@ -19,6 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  url: <%= ENV['DATABASE_URL'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -80,6 +81,10 @@ test:
 #
 production:
   <<: *default
-  database: austana_production
-  username: austana
-  password: <%= ENV['AUSTANA_DATABASE_PASSWORD'] %>
+  # database: austana_production
+  adapter: postgresql
+  host: db
+  # username: austana
+  username: postgres
+  # password: <%= ENV['AUSTANA_DATABASE_PASSWORD'] %>
+  password:

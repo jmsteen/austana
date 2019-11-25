@@ -1,0 +1,123 @@
+.close-icon {
+    height: 16px;
+    width: 16px;
+    fill: #6f7782;
+    padding: 6px 0;
+    border-radius: 50%;
+    margin-left: 70px;
+    cursor:pointer;
+}
+
+.close-icon:hover {
+    fill: #565c65;
+}
+
+.task-assign {
+    display: flex;
+    height: 40px;
+    padding: 0 20px;
+    color: #9CA6AF;
+    font-size: 13px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-assignee {
+    height: 30px;
+    width: 100px;
+    max-width: 180px;
+    border-radius: 100px;
+    color: #2e2a2a;
+    background: #f6f8f9;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 5px;
+    text-align: center
+}
+
+.task-project {
+    height: 30px;
+    width: 140px;
+    max-width: 180px;
+    color: #9CA6AF;
+    border: 1px solid lightgray;
+    display: flex;
+    margin: 0 10px;
+    padding: 2px 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    text-align: center;
+}
+
+.task-assign:focus , .task-project:focus {
+    outline: 0
+}
+
+.task-form-container {
+    
+}
+
+.task-form-container > input,
+    .task-form-container textarea {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        background: white;
+        box-sizing: border-box;
+}
+
+.task-form-container textarea {
+    height: 322px;
+    max-height: 100%;
+    padding: 0 20px;
+    font-size: 13px;
+    resize: none;
+}
+
+.task-form-container > input {
+    height: 28px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.task-form-container > input:focus,
+    .task-form-container textarea:focus {
+        outline: 0
+}
+
+.task-form-container button {
+    cursor: pointer;
+    background: #14aaf5;
+    text-align: center;
+    padding: 0 9px;
+    color: white;
+    font-size: 13px;
+    box-sizing: border-box;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.task-form-container button:hover {
+    background: #187fb3;
+    transition: 0.2s;
+}
+
+.task-submit-bar {
+    height: 50px;
+    max-height: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.task-submit-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 24px;
+    display: flex;
+}

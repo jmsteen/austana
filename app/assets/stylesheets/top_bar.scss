@@ -1,9 +1,17 @@
 .top-bar {
     display: flex;
     background: white;
-    border-bottom: 1px solid lightgrey;
     justify-content: space-between;
     padding: 20px;
+}
+
+
+.arrow-anchor {
+    align-self: center;
+    position: relative;
+    height: 6px;
+    width: 15px;
+    margin: -6px 15px 0px 15px;
 }
 
 .dropdown {
@@ -14,10 +22,8 @@
 }
 
 .dropdown span {
-    background: blue;
     color: white;
     border-radius: 100%;
-    padding: 10px;
     font-size: 10px;
     cursor: pointer;
 }
@@ -47,3 +53,98 @@
     z-index: 1;
     padding: 10px
 };
+
+
+.up-arrow {
+    height: 0;
+    top: 9px;
+    position: absolute;
+    clip: rect(-3px 17px 7px -3px);
+    
+}
+
+.up-arrow:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    background: white;
+    box-sizing: border-box;
+    display: block;
+    box-shadow: 0 0 0 1px rgba(111, 119, 130, 0.15),
+    0 5px 20px 0 rgba(21, 27, 38, 0.08);
+}
+
+.new-dropdown {
+    position: relative;
+    display: inline-block
+}
+
+.new-drop-btn {
+    background: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
+    min-width: 62px;
+    color: white;
+    padding: 0 9px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 4px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.new-drop-btn:hover, .new-drop-btn:focus {
+    background: linear-gradient(to top right, #a93535 0%, #c2704a 35%, #ae7702 100%); 
+    outline: 0;
+}
+
+.new-dropdown-items {
+    display: flex;
+    flex-direction: column;
+    top: 9px;
+    position: absolute;
+    padding: 5px 0;
+    background: #ffffff;
+    min-width: 152px;
+    box-shadow: 0 0 0 1px rgba(111,119,130,.15),
+        0 5px 20px 0 rgba(21,27,38,.08);
+    left:  -58px;
+}
+
+.new-dropdown-items > span, .new-dropdown-items > button {
+    display: flex;
+    align-items: center;
+    color: #151b26;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 0 30px 0 15px;
+    height: 40px;
+    text-decoration: none;
+}
+
+.new-dropdown-items > span:hover, .new-dropdown-items > button:hover {
+    background: linear-gradient(45deg, #ff5263 0%, #ff7381 60%, #fcbd01 115%);
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar-left h2 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.user-logout {
+    background: blue;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid #4d678f;
+}

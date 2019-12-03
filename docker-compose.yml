@@ -17,3 +17,4 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://postgres@db
+      RAILS_SERVE_STATIC_FILES: "TRUE"

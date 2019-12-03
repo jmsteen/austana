@@ -5,8 +5,9 @@ WORKDIR /usr/src/node_app
 ARG NODE_ENV=production
 ENV PATH /usr/src/node_app/node_modules/.bin:$PATH
 
+COPY package.json /usr/src/node_app/package.json
+
 RUN npm install --silent
-RUN npm install webpack -g --silent
 
 COPY . /usr/src/node_app
 
@@ -22,7 +23,7 @@ RUN apk add --no-cache --update build-base \
   tzdata
 
 ENV DATABASE_URL="postgres://postgres@db"
-ARG RAILS_ENV=production
+ENV RAILS_ENV=production
 
 WORKDIR /my_app
 COPY Gemfile /my_app/Gemfile

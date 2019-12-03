@@ -44,7 +44,6 @@ class Api::TeamsController < ApplicationController
     end
 
     def create_seed_data
-        debugger
         project = Project.create(name: @team.name + " Project", due_on: '2019-12-31 19:38:15',
                 owner_id: current_user.id, team_id: @team.id)
         task_list1 = TaskList.create(

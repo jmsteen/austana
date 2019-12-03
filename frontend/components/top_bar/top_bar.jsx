@@ -1,5 +1,6 @@
 import React from 'react';
 import NewDropDown from './new_dropdown';
+import LogoutDropdown from './logout_dropdown';
 import { Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import HomeNav from '../../components/navbars/home-nav';
@@ -13,6 +14,13 @@ class TopBar extends React.Component {
         this.state = { 
             currentUser: ""
         };
+    }
+
+    componentDidMount() {
+        if (!this.props.projects) {
+            this.props.fetchProjects()
+                .then(this.props.fetchTaskLists(Object.keys(this.props.projects)[0]))
+        }
     }
 
     render () {
@@ -34,14 +42,7 @@ class TopBar extends React.Component {
                     
                     <section className="top-bar-right">
                         <NewDropDown  />
-                        <div className="dropdown">
-                            <div className="user-logout">
-                                <span>{this.props.currentUser && initials()}</span>
-                            </div>
-                            <div className="dropdown-content">
-                                <button onClick={this.props.logout}>Logout</button>
-                            </div>
-                        </div>
+                        <LogoutDropdown />
                     </section>
         </nav>
 

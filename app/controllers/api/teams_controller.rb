@@ -8,7 +8,11 @@ class Api::TeamsController < ApplicationController
 
     def create
         @team = Team.new(team_params)
-        @team.members.push({"name": current_user.name, "email": current_user.email})
+        
+        if @team.members.length < 1
+            @team.members.push(current_user.name + '-' + current_user.email)
+        end
+
         if @team.save
             current_user.teams << @team
             create_seed_data
@@ -36,7 +40,7 @@ class Api::TeamsController < ApplicationController
     private
     
     def team_params
-        params.require(:team).permit(:name, :description, members: [:name, :email])
+        params.require(:team).permit(:name, :description, members: [])
     end
 
     def create_seed_data

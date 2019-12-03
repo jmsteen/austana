@@ -72,9 +72,12 @@ class ProjectForm extends React.Component {
                                 <select
                                     className="new-project-select"
                                     required
+                                    onChange={this.update("team_id")}
                                     placeholder="For example, 'Austana App Launch' or 'Implement Kubernetes'..."
                                     >
                                     <option value={this.props.team && this.props.team.id}>{this.props.team && (this.props.team.name)}</option> 
+                                    {this.props.teams[1] && (<option value={this.props.teams[1].id}>{this.props.teams[1] && (this.props.teams[1].name)}</option>)} 
+                                    {this.props.teams[2] && (<option value={this.props.teams[2].id}>{this.props.teams[2] && (this.props.teams[2].name)}</option>)} 
                                 </select>
                             </label>
                         </div>

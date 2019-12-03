@@ -47,8 +47,8 @@ export const fetchCurrentTask = taskId => dispatch => {
     return dispatch(receiveCurrentTask(taskId));
 };
 
-export const createTask = (taskListId, task) => dispatch => {
-    return TaskApiUtil.createTask(taskListId, task)
+export const createTask = (task) => dispatch => {
+    return TaskApiUtil.createTask(task)
         .then(task => dispatch(receiveTask(task)));
 };
 

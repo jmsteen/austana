@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from '../top_bar/top_bar';
+import TopBarContainer from '../top_bar/top_bar_container';
 import MainContainer from '../main/main_container';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -7,7 +7,7 @@ const AustanaGrid = ({currentUser, logout}) => {
     
     return (
         <section className="container">
-            <TopBar currentUser={currentUser} logout={logout} />
+            <TopBarContainer />
             <SideBarContainer />
             <MainContainer />
         </section>

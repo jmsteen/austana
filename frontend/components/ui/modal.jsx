@@ -1,9 +1,11 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import TaskFormContainer from '../tasks/task_form_container';
 
 const Modal = ({ modal, closeModal }) => {
+
     if (!modal) {
         return null;
     }
@@ -37,4 +39,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Modal));

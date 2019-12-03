@@ -10,7 +10,6 @@ import { openPopup } from '../../actions/popup_actions';
 
 const mapStateToProps = ({ entities: { projects, tasks, taskLists }}, ownProps ) => {
     const project = projects[ownProps.match.params.projectId];
-    
     return {
         project,
         tasks: Object.values(tasks),

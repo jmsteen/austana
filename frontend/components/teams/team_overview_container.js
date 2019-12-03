@@ -14,14 +14,13 @@ import { openPopup } from '../../actions/popup_actions';
 
 const mapStateToProps = ({entities: { teams, users, projects }}, ownProps) => {
     const team = teams[ownProps.match.params.teamId];
-    // const memberIds = team ? team.memberIds : null;
     const teamId = ownProps.match.params.teamId;
+    const filteredProjects = Object.values(projects).filter(project=>project.team_id.toString() === teamId)
     return {
         team,
         teamId,
         users,
-        // memberIds,
-        projects: Object.values(projects)
+        projects: filteredProjects
     }
 };
 
@@ -30,10 +29,7 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchTeam: (id) => dispatch(fetchTeam(id)),
         fetchTeams: () => dispatch(fetchTeams()),
-        // addMember: (member, teamId) => dispatch(createTeamMember(member, teamId)),
         updateTeam: team => dispatch(updateTeam(team)),
-        // fetchTeamMemberIds: id => dispatch(fetchTeamMemberIds(id)),
-        // fetchTeamMembers: id => dispatch(fetchTeamMembers(id)),
         fetchProjects: ()=>dispatch(fetchProjects()),
         openPopup: type => dispatch(openPopup(type))
     };

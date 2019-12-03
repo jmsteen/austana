@@ -14,7 +14,7 @@ class UpcomingTasks extends React.Component {
     render () {
         let emojis = ['🎉', '👩‍💻', '📋']
         const taskLis = this.props.upcomingTasks.map((task, i) => {
-            return <TaskItem task={task} emoji={emojis[i]} key={i}/>
+            return !task.completed && <TaskItem task={task} emoji={emojis[i]} key={i}/>
         })
         
         return <div className="upcoming-tasks">
@@ -23,7 +23,7 @@ class UpcomingTasks extends React.Component {
                 <Link to='/tasks'>See all my tasks</Link> 
             </div>
             <ul className="home-task-list"> 
-                { taskLis } 
+                 { taskLis } 
             </ul>
         </div>
     }

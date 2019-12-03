@@ -8,6 +8,7 @@ class RecentProjects extends React.Component {
 
     componentDidMount() {
         this.props.fetchProjects()
+            .then(projects => this.props.fetchTaskLists(Object.values(projects)[0].id))
     }
 
     render() {
@@ -48,7 +49,7 @@ class RecentProjects extends React.Component {
                 <h4 className="recent-project-name">New Project</h4>
                 </div>
             </div>
-        </div>
+            </div>
     }
 }
 

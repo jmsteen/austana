@@ -3,7 +3,7 @@ import React from 'react';
 class TaskForm extends React.Component {
     constructor(props) {
         super(props)
-        // this.taskRef = React.createRef();
+        
         this.state = {
             name: '',
             notes: '',
@@ -16,10 +16,12 @@ class TaskForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchTaskList(this.state.task_list_id)
+        
+        this.props.fetchTaskLists(this.state.project_id)
+            .then(this.props.fetchTaskList(this.state.task_list_id)
             .then((taskList) => this.setState({
                 task_list_id: taskList.id
-            }));
+            })));
         this.setState({
             assignee_id: this.props.currentUser.id
         })
@@ -62,15 +64,37 @@ class TaskForm extends React.Component {
                         <p>For</p>
                         <input type="text"
                             className="task-assignee"
-                            placeholder={this.props.currentUser.name}
+                            placeholder={this.props.currentUser && (this.props.currentUser.name)}
                             disabled
                         />
                         <p>In</p>
-                        <input 
-                            className="task-project"   
-                            placeholder={this.props.taskList && (this.props.taskList.name) || "Discovery & Planning"}
-                            disabled
-                        />
+                        <select
+                            className="task-project"
+                            value={this.state.task_list_id}
+                            placeholder={this.props.taskLists && (this.props.taskList.name) || "Discovery & Planning"}
+                            onChange={this.update('task_list_id')}
+                        >
+                            <option 
+                                value={this.props.taskLists[0].id}
+                            >
+                                {this.props.taskLists[0].name}
+                            </option>
+                            <option 
+                                value={this.props.taskLists[1].id}
+                            >
+                                {this.props.taskLists[1].name}
+                            </option>
+                            <option 
+                                value={this.props.taskLists[2].id}
+                            >
+                                {this.props.taskLists[2].name}
+                            </option>
+                            <option 
+                                value={this.props.taskLists[3].id}
+                            >
+                                {this.props.taskLists[3].name}
+                            </option>
+                        </select>
                     </div>
                     <textarea 
                         value={this.state.notes}

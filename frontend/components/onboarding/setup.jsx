@@ -24,7 +24,8 @@ class Setup extends React.Component {
                 name: ""
             },
             team: {
-                name: ""
+                name: "",
+                members: []
             }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,17 +33,27 @@ class Setup extends React.Component {
 
     update(type) {
         return (e) => {
-            let name = { name: e.target.value}
-            this.setState ({
-                [type]: name
-            });
+            let newName = { name: e.target.value}
+            if (type === "user") {
+                this.setState({
+                    [type]: newName
+                });
+            } else {
+                let newMember = this.state.user.name + '-' + this.props.email;
+                const { team } = this.state;
+                team["name"] = newName.name;
+                team["members"] = [newMember];
+                this.setState({
+                    team: team
+                })
+            }
         };
     };
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createTeam(this.state.team)
-            .then(()=>this.props.updateUser(this.state.user))
+        this.props.updateUser(this.state.user)
+            .then(() =>this.props.createTeam(this.state.team))
             .then(()=>this.props.history.push('/home'))
     }
 

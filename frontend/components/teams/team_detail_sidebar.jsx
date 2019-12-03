@@ -32,11 +32,6 @@ class TeamDetailSidebar extends React.Component {
         this.toggle = this.toggle.bind(this);
     };
 
-    componentDidMount() {
-        this.props.fetchTeamMembers(this.props.team.id)
-            .then(this.props.fetchTeamMemberIds(this.props.team.id));
-    }
-
     toggle() {
         this.setState({
             open: !this.state.open
@@ -49,12 +44,12 @@ class TeamDetailSidebar extends React.Component {
     render () {
         let sideMembers
 
-        if(this.props.team.memberIds) {
-            sideMembers = this.props.team.memberIds.map((id, idx) => {
+        if(this.props.team.members) {
+            sideMembers = this.props.team.members.map((member, idx) => {
                 return <div key={idx} className={`side-team-member-${idx}`}>
-                    {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
+                    {member.split("-")[0].split(" ").map(name => name[0]).join("")}
                 </div>
-            });
+            }).slice(0, 4);
         }
 
         return <div>
@@ -76,6 +71,7 @@ class TeamDetailSidebar extends React.Component {
                         </svg>
                         <h3 
                             className="side-team-name"
+                            id="side-team-name"
                             onClick={()=>(
                                 this.props.history.push(`/teams/${this.props.team.id}`)
                             )}

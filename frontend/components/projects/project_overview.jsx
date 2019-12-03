@@ -3,11 +3,9 @@ import React from 'react';
 class ProjectOverview extends React.Component {
     constructor(props) {
         super(props)
-        // this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
-      
         this.props.fetchProject(this.props.match.params.projectId)
             .then(() => this.props.fetchTaskLists(this.props.project.id))
             .then(()=> this.props.fetchTasks());
@@ -21,16 +19,14 @@ class ProjectOverview extends React.Component {
     render() {
         
         const filteredtasks = (taskListId) => {
-            
             if (this.props.tasks.length > 0) {
                 return this.props.tasks.filter(task => {
-                    return task.task_list_id === taskListId
+                    return task.task_list_id === taskListId && !task.completed
                 });
             };
         };
 
         const taskLis = taskListId => {
-                
                 return filteredtasks(taskListId).map(task=>{
                     return <li className="project-task" key={task.id} onClick={()=>this.handleClick(task.id)}>
                         {task.name}

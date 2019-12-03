@@ -37,11 +37,28 @@
     text-align: center
 }
 
+.task-project::-ms-expand {
+    display: none;
+}
+.task-project:hover {
+    border-color: #888;
+    color: #888;
+}
+.task-project:focus {
+    border-color: lightgray;
+    color: rgb(58, 58, 58); 
+    outline: none;
+}
+
 .task-project {
+    box-sizing: border-box;
     height: 30px;
-    width: 140px;
+    width: 172px;
     max-width: 180px;
-    color: #9CA6AF;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: normal;
+    color: #a1a1a2;
     border: 1px solid lightgray;
     display: flex;
     margin: 0 10px;
@@ -49,7 +66,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 100px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f6f8f9;
+    cursor: pointer;
     text-align: center;
+    text-align-last: center;
+        option {
+            font: inherit;
+            background: #f6f8f9;
+        }
 }
 
 .task-assign:focus , .task-project:focus {

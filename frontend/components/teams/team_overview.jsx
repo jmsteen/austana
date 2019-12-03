@@ -30,10 +30,18 @@ class TeamOverview extends React.Component {
     addMember(e) {
         e.preventDefault();
 
-        const {team, member} = this.state;
-        team.members.push(member);
+        let newMember = this.state.member;
+        let updatedTeam = this.state.team;
+        newMember = newMember.name + '-' + newMember.email;
+        updatedTeam.members.push(newMember);
 
-        this.props.updateTeam(team);
+        this.props.updateTeam(updatedTeam).then(this.setState({
+            newMember: false,
+            member: {
+                name: "",
+                email: ""
+            }
+        }))
     }
 
     componentDidUpdate(prevProps) {
@@ -46,11 +54,14 @@ class TeamOverview extends React.Component {
                         name: team.name,
                         members: team.members,
                         id: team.id
+                    },
+                    newMember: false,
+                    member: {
+                        name: "",
+                        email: ""
                     }
                 }))
                 .then(() => this.props.fetchTeams())
-                // .then(() => this.props.fetchTeamMembers(newTeamId))
-                // .then(() => this.props.fetchTeamMemberIds(newTeamId))
                 .then(() => this.props.fetchProjects())
         }
     }
@@ -67,8 +78,6 @@ class TeamOverview extends React.Component {
                 }
             }))
             .then(() => this.props.fetchTeams())
-            // .then(() => this.props.fetchTeamMembers(teamId))
-            // .then(() => this.props.fetchTeamMemberIds(teamId))
             .then(() => this.props.fetchProjects())
     }
 
@@ -82,11 +91,12 @@ class TeamOverview extends React.Component {
                 const teamState = this.state.team;
                 teamState[field] = e.target.value;
                 this.setState({
-                    member: teamState
+                    team: teamState
                 })
-            } else {
+            } else if (field === 'memberName' || field === 'memberEmail') {
                 const memberState = this.state.member;
-                memberState[field] = e.target.value;
+                let stateField = field === 'memberName' ? 'name' : 'email';
+                memberState[stateField] = e.target.value;
                 this.setState({
                     member: memberState
                 })
@@ -98,7 +108,7 @@ class TeamOverview extends React.Component {
         let projectDivs = [];
         if (this.props.projects) {
             projectDivs = this.props.projects.map((project, i) => {
-                if (project.team_id === this.props.match.params.teamId) {
+                if (this.props.projects[0].team_id.toString() === this.props.match.params.teamId) {
                     return <div onClick={()=>this.props.history.push(`/projects/${project.id}`)} key={project.id} className="project-detail-item">
                         <div className={`project-icon-large-${i}`}>
                             <svg className="project-icon" viewBox="0 0 32 32">
@@ -132,44 +142,31 @@ class TeamOverview extends React.Component {
                         <ul> {this.state.team.members.length > 0 && (this.state.team.members.map((member, idx) => {
                                 return <li key={idx} className="team-member">
                                     <div className={`member-icon-${idx}`}>
-                                        {member.name.split(" ").map(name => name[0]).join("")}
+                                        {member.split("-")[0].split(" ").map(name => name[0]).join("")}
                                     </div>
                                     <div className="member-info">
-                                        <p>{member.name}</p>
-                                        <p>{member.email}</p>
+                                        <p>{member.split("-")[0]}</p>
+                                        <p>{member.split("-")[1]}</p>
                                     </div>
                                 </li>
-                            })
+                            }).slice(0, 4)
                         )} 
                         </ul>
-                        {/* <ul> {this.props.memberIds && this.props.users && (this.props.memberIds.map((id, idx) => {
-                                return <li key={id} className="team-member">
-                                    <div className={`member-icon-${idx}`}>
-                                        {this.props.users[id].name.split(" ").map(name => name[0]).join("")}
-                                    </div>
-                                    <div className="member-info">
-                                        <p>{this.props.users[id].name}</p>
-                                        <p>{this.props.users[id].email}</p>
-                                    </div>
-                                </li>
-                            })
-                        )} 
-                        </ul> */}
                         {this.state.newMember && (
-                            <form onSubmit={this.addMember}>
+                            <form className="new-member-form" onSubmit={this.addMember}>
                                 <input type="text"
                                 required
                                 placeholder="Name"
                                 value={this.state.member.name}
-                                onChange={this.update('name')}
+                                onChange={this.update('memberName')}
                                 />
                                 <input type="text"
                                 required
                                 placeholder="Email"
                                 value={this.state.member.email}
-                                onChange={this.update('email')}
+                                onChange={this.update('memberEmail')}
                                 />
-                                <button>Submit</button>
+                                <button className="task-update-button">Add Member</button>
                             </form>
                         )}
                         <div onClick={this.toggle} className="add-member">+ Add Member</div>

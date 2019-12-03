@@ -36,7 +36,10 @@ const removeProject = project => {
 
 export const fetchProjects = () => dispatch => {
     return ProjectApiUtil.fetchProjects()
-        .then(projects => dispatch(receiveAllProjects(projects)));
+        .then(projects => {
+            dispatch(receiveAllProjects(projects))
+            return projects
+        });
 };
 
 export const fetchProject = (id) => dispatch => {

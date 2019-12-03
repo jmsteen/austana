@@ -25,13 +25,6 @@
     display: flex;
 }
 
-// @media (max-width: 1230px){
-//     .team-inner {
-//         width: 680px;
-//     }   
-
-// } 
-
 .team-overview {
     display: flex;
     position: relative;
@@ -48,6 +41,21 @@
     top: 0;
     left: 0;
 }
+
+.new-member-form {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    justify-content: flex-start;
+    input {
+        border: 1px solid lightgray;
+        padding: 5px;
+        margin: 3px 0;
+        border-radius: 5px;
+    }
+}
+
 
 .team-left {
     width: 260px;
@@ -94,8 +102,8 @@
 }
 
 .member-icon-1 {
-    background: blue;
-    border: 1px solid blue;
+    background: #f8971f;
+    border: 1px solid #f8971f;
     border-radius: 50%;
     color: white;
     display: flex;
@@ -108,8 +116,8 @@
 }
 
 .member-icon-0 {
-    background: #f8971f;
-    border: 1px solid #f8971f;
+    background: blue;
+    border: 1px solid blue;
     border-radius: 50%;
     color: white;
     display: flex;
@@ -124,6 +132,20 @@
 .member-icon-2 {
     background: #a6cd57;
     border: 1px solid #a6cd57;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+    font-size: 13px;
+}
+
+.member-icon-3 {
+    background: purple;
+    border: 1px solid purple;
     border-radius: 50%;
     color: white;
     display: flex;

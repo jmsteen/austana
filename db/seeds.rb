@@ -51,7 +51,7 @@ teams = [
     {
         name: 'Engineering',
         description: 'Responsible for web development and architecture',
-        members: [{name: "Guest User", email: "demo@demo.com"}]
+        members: ["Guest User-demo@demo.com"]
     },
     {
         name: 'Marketing',

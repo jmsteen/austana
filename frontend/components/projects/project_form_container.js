@@ -5,7 +5,8 @@ import { createProject } from '../../actions/project_actions';
 
 const mapStateToProps = ({entities: { projects, users, teams}, session}) => {
     return {
-        team: Object.values(teams)[0]
+        team: Object.values(teams)[0],
+        teams: Object.values(teams)
     }
 };
 

@@ -5,7 +5,11 @@ import { openPopup } from '../../actions/popup_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({entities: {tasks}}, ownProps) => {
-    const upcomingTasks = sortedTasksSelector(tasks).slice(0, 2);
+    
+    let sortedTasks = Object.values(sortedTasksSelector(tasks)).filter(task => !task.completed);
+    const upcomingTasks = sortedTasks
+        .slice(sortedTasks.length - 2)
+        .reverse();
 
     return {
         upcomingTasks

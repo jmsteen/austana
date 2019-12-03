@@ -59,7 +59,10 @@ export const logout = () => dispatch => {
 
 export const updateUser = user => dispatch => {
     return SessionApiUtil.updateUser(user)
-        .then(user => dispatch(receiveCurrentUser(user)))
+        .then(user => {
+            dispatch(receiveCurrentUser(user))
+            return user
+        })
 };
 
 export const createTeamMember = (user, teamId) => dispatch => {

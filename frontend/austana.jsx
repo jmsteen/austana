@@ -4,10 +4,12 @@ import Root from './root';
 import configureStore from './store/store';
 import * as TaskActions from './actions/task_actions'
 import { logout } from './actions/session_actions';
+import { createTask } from './util/task_api_util';
 
 window.logout = logout;
-
+window.createTask = createTask;
 window.TaskActions = TaskActions;
+
 
 document.addEventListener("DOMContentLoaded", ()=>{
     let store;

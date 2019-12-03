@@ -108,6 +108,28 @@
 
     }
 
+    .logout-positioner {
+        position: relative;
+    }
+    
+    .logout-positioner-outer {
+        align-items: flex-start;
+        display: flex;
+        font-size: 13px;
+        height: 0;
+        position: absolute;
+        z-index: 1000;
+        justify-content: center;
+        margin-left: 0vw;
+        top: 2px;
+        right: 20px;
+    }
+
+    .logout-positioner-inner {
+        position: relative;
+
+    }
+
     .root-positioner {
 
     }

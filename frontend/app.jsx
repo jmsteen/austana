@@ -12,7 +12,6 @@ import Setup from './components/onboarding/setup';
 
 const App = () => {
     return <div>
-        
         <Modal />
         <Popup />
         <Switch>

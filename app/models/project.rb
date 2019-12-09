@@ -7,7 +7,7 @@ class Project < ApplicationRecord
 
     belongs_to :team
 
-    has_many :task_lists
-    has_many :tasks
+    has_many :task_lists, dependent: :destroy
+    has_many :tasks, dependent: :destroy
 
 end

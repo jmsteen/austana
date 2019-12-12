@@ -11,6 +11,17 @@ lists.
 
 Click here to access the live demo: [Austana](https://roastia.herokuapp.com)
 
+## Technologies
+
+**Back end**: 
+* Ruby on Rails for web application framework
+* PostgreSQL for database
+
+**Front end**:
+* JavaScript
+* React / Redux for front end framework and state management
+* SCSS for styling
+
 ## Feature Highlights
 
 ### Login and Signup
@@ -27,17 +38,6 @@ mark tasks complete by clicking the check mark or add new tasks to the list.
 ![Project View](/app/assets/images/project-view.png)
 The project view allows users to view task lists and tasks for a given project and
 edit, add or mark tasks complete.
-
-## Technologies
-
-**Back end**: 
-* Ruby on Rails for web application framework
-* PostgreSQL for database
-
-**Front end**:
-* JavaScript
-* React / Redux for front end framework and state management
-* SCSS for styling
 
 ## Desired Future Implementation:
 * Email invitations for new team members

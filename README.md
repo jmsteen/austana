@@ -18,7 +18,7 @@ Click here to access the live demo: [Austana](https://roastia.herokuapp.com)
 * PostgreSQL for database
 
 **Front end**:
-* JavaScript
+* JavaScript ES6
 * React / Redux for front end framework and state management
 * SCSS for styling
 

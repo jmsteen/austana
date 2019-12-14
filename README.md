@@ -28,7 +28,7 @@ Click here to access the live demo: [Austana](https://roastia.herokuapp.com)
 
 A top priority for Austana was ensuring a seamless UI across various components
 and entities. Most components required multiple API calls, so utilizing React
-lifecycle methods, JavaScript promises and the Redux store were crucial to
+lifecycle methods, JavaScript promises and the Redux store was crucial to
 achieving this goal.
 
 *Example:* In the `ProjectOverview` component, I used `componentDidMount()`, React

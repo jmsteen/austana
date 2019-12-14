@@ -6,11 +6,14 @@ class ProjectOverview extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchProject(this.props.match.params.projectId)
-            .then(() => this.props.fetchTaskLists(this.props.project.id))
-            .then(()=> this.props.fetchTasks());
+        const projectId = this.props.match.params.projectId;
+        Promise.all([
+            this.props.fetchProject(projectId),
+            this.props.fetchTaskLists(projectId),
+            this.props.fetchTasks()
+        ]).catch(err => console.error(err.message));
     }
-
+    
     handleClick(id) {
         this.props.fetchCurrentTask(id);
         this.props.openPopup();

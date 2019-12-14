@@ -20,7 +20,35 @@ Click here to access the live demo: [Austana](https://roastia.herokuapp.com)
 **Front end**:
 * JavaScript ES6
 * React / Redux for front end framework and state management
-* SCSS for styling
+* SCSS for styling  
+
+## Technical Challenges  
+
+### Asynchronous JavaScript and State Management  
+
+A top priority for Austana was ensuring a seamless UI across various components
+and entities. Most components required multiple API calls, so utilizing React
+lifecycle methods, JavaScript promises and the Redux store were crucial to
+achieving this goal.
+
+*Example:* In the `ProjectOverview` component, I used `componentDidMount()`, React
+Router and `Promise.all` to populate the Redux store as soon as the component mounted
+so that state related to a particular project could be used in multiple views.
+
+``` javascript
+  componentDidMount() {
+    const projectId = this.props.match.params.projectId;
+    Promise.all([
+      this.props.fetchProject(projectId),
+      this.props.fetchTaskLists(projectId),
+      this.props.fetchTasks()
+    ]).catch(err => console.error(err.message));
+  }
+```  
+
+
+![Redux Store](/app/assets/images/redux-store.png)
+
 
 ## Feature Highlights
 
@@ -45,5 +73,5 @@ edit, add or mark tasks complete.
 
 ## Developer
 
-John Steen is a full stack software engineer living in Houston, TX. Learn more
+John Steen is a full stack software engineer living in Austin, TX. Learn more
 about him on [LinkedIn](https://www.linkedin.com/in/johnmsteen/).

@@ -8,6 +8,7 @@ import SignupFormContainer from './components/session_form/signup_form_container
 import LoginFormContainer from './components/session_form/login_form_container';
 import Welcome from './components/onboarding/welcome';
 import Setup from './components/onboarding/setup';
+import Splash from './components/onboarding/splash';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Switch>
             <ProtectedRoute exact path='/welcome' component={Welcome} />
             <ProtectedRoute exact path='/setup' component={Setup} />
+            <AuthRoute component={Splash} />
             <AuthRoute exact path='/signup' component={SignupFormContainer}/>
             <AuthRoute exact path='/login' component={LoginFormContainer}/>
             <ProtectedRoute path='/' component={AustanaGridContainer} />

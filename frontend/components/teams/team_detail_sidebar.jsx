@@ -5,7 +5,6 @@ import { fetchTeamMembers, fetchTeamMemberIds } from '../../actions/team_actions
 import { openPopup } from '../../actions/popup_actions';
 
 const msp = ({entities: { teams, users }}, ownProps) => {
-    
     const team = teams[ownProps.match.params.teamId];
     const memberIds = team ? team.memberIds : [];
 
@@ -44,7 +43,7 @@ class TeamDetailSidebar extends React.Component {
     render () {
         let sideMembers
 
-        if(this.props.team.members) {
+        if (this.props.team.members) {
             sideMembers = this.props.team.members.map((member, idx) => {
                 return <div key={idx} className={`side-team-member-${idx}`}>
                     {member.split("-")[0].split(" ").map(name => name[0]).join("")}

@@ -20,7 +20,6 @@ class ProjectOverview extends React.Component {
     }
 
     render() {
-        
         const filteredtasks = (taskListId) => {
             if (this.props.tasks.length > 0) {
                 return this.props.tasks.filter(task => {

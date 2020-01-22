@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import Home from './home';
 
-const msp = ({entities: { users }, session}, ownProps) => {
+const mapStateToProps = ({entities: { users }, session}, ownProps) => {
     return {
         currentUser: users[session.id]
     };
 };
 
-const mdp = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {}
 };
 
-export default connect(msp, mdp)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

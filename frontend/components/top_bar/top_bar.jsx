@@ -24,7 +24,6 @@ class TopBar extends React.Component {
     }
 
     render () {
-        
         const initials = () => {if (this.props.currentUser.name) {
             let userNames = this.props.currentUser.name.split(' ')
             return userNames.map(partOfName => partOfName[0])

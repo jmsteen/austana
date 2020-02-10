@@ -13,7 +13,6 @@ const receiveAllProjects = projects => {
 };
 
 const receiveProject = project => {
-    
     return {
         type: RECEIVE_PROJECT,
         project

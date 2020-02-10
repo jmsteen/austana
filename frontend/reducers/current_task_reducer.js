@@ -6,7 +6,7 @@ const _nullTask = Object.freeze(null);
 
 const currentTaskReducer = (state = _nullTask, action) => {
     Object.freeze(state);
-
+    
     switch (action.type) {
         case RECEIVE_CURRENT_TASK:
             return action.taskId;

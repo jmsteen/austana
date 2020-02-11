@@ -9,7 +9,7 @@ lists.
 
 ## Live Demo
 
-Click here to access the live demo: [Austana](https://roastia.herokuapp.com)
+Click here to access the live demo: [Austana](https://austana.herokuapp.com)
 
 ## Technologies
 

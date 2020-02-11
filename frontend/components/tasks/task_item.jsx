@@ -26,10 +26,10 @@ class TaskItem extends React.Component {
     }
 
     handleClick(e) {
-            if (e.target.classList[0] !== 'checkmark') {
-                this.props.fetchCurrentTask(this.props.task.id);
-                this.props.openTask();
-            }
+        if (e.target.classList[0] !== 'checkmark') {
+            this.props.fetchCurrentTask(this.props.task.id);
+            this.props.openTask();
+        }
     }
 
     render() {

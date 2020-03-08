@@ -3,7 +3,7 @@ import ProjectForm from './project_form';
 import { closePopup } from '../../actions/popup_actions';
 import { createProject } from '../../actions/project_actions';
 
-const mapStateToProps = ({entities: { projects, users, teams}, session}) => {
+const mapStateToProps = ({entities: { teams }}) => {
     return {
         team: Object.values(teams)[0],
         teams: Object.values(teams)

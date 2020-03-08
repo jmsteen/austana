@@ -7,9 +7,6 @@ import { Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util'; 
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render () {
         return <main className="item austana-main">

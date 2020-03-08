@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { openPopup } from '../../actions/popup_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = ({ entities: { projects } }, ownProps) => {
+const mapStateToProps = ({ entities: { projects } }) => {
    
     return {
         projects: Object.values(projects),

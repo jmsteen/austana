@@ -104,9 +104,6 @@ class SessionForm extends React.Component {
               <Link to={`/${this.props.button}`}>
                 <button>{this.props.altSession}</button>
               </Link>
-              {/* <button onClick={this.demoLogin.bind(this)} className="demo">
-                Demo Login
-              </button> */}
             </footer>
           </div>
         );

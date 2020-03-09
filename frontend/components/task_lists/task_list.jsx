@@ -10,14 +10,9 @@ const mapDispatchToProps = dispatch => {
 }
 
 class TaskList extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render () {
-        return <div>
-
-        </div>
+        return <div></div>
     }
 };
 

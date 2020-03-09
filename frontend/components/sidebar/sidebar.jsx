@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import TeamSideBarContainer from '../teams/team_sidebar_container';
 
 class SideBar extends React.Component {
-    constructor(props) {
-        super(props)
-
-    }
 
     render () {
     
